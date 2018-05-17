@@ -1,0 +1,2 @@
+graft cgui/templates
+graft cgui/static
