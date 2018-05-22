@@ -4,7 +4,13 @@
 
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
 <div class=page>
-    <div class=nav_bar><button id=block>test</button></div>
+    <div class=nav_bar>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/test">About</a></li>
+            <li style="float: right; border-left: 3px solid white;"><a href="/contact">Contact</a></li>
+        </ul>
+    </div>
     {% block body %}{% endblock %}
 </div>
 

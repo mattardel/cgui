@@ -1,10 +1,12 @@
-.page                   {text-align: center;}
-.nav_bar                {width: 75%; text-align: center; margin: auto;}
-#block                  {display: block;
-    width: 100%;
-    border: none;
-    background-color: #4CAF50;
-    padding: 14px 28px;
-    font-size: 16px;
-    cursor: pointer;
-    text-align: center;}
+body                    {background: white;}
+
+.nav_bar                {padding: 3px;}
+.nav_bar ul             {list-style-type: none; margin: 0; padding: 0; overflow: hidden; background-color: #dddddd;}
+.nav_bar li             {display: inline; float: left; border-right: 3px solid white;}
+.nav_bar li:last-child  {border-right: none;}
+.nav_bar li a           {display: block; color: black; text-align: center; padding: 8px; text-decoration: none;}
+.nav_bar li a:hover     {background-color: #F2F2F2;}
+
+
+.page                   {width: 75%; text-align: center; margin: auto; background: #F2F2F2; height: 100%;}
+.content                {color: cornflowerblue;}
