@@ -4,12 +4,14 @@
 
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
 <div class=page>
+
     <div class=nav_bar>
+        <img src="{{ url_for('static', filename='cg_logo.jpg') }}" style="width: 70px; float:left; padding: 5px;">
         <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/test">About</a></li>
             <li><a href="https://www.capitalgroup.com/our-approach.html">Institutional</a></li>
-            <li style="float: right; border-left: 1px solid darkgrey;"><a href="/contact">Contact</a></li>
+            <li><a href="/contact">Contact</a></li>
         </ul>
     </div>
     {% block body %}{% endblock %}
