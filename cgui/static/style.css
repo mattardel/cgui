@@ -1,10 +1,10 @@
 body                    {background: white;}
 
-.nav_bar                {padding: 3px;}
+.nav_bar                {border: 1px solid darkgrey; font-size: 1.5em;}
 .nav_bar ul             {list-style-type: none; margin: 0; padding: 0; overflow: hidden; background-color: #dddddd;}
-.nav_bar li             {display: inline; float: left; border-right: 3px solid white;}
+.nav_bar li             {display: inline; float: left; border-right: 1px solid darkgrey;}
 .nav_bar li:last-child  {border-right: none;}
-.nav_bar li a           {display: block; color: black; text-align: center; padding: 8px; text-decoration: none;}
+.nav_bar li a           {display: block; color: #474c51; text-align: center; padding: 8px; text-decoration: none;}
 .nav_bar li a:hover     {background-color: #F2F2F2;}
 
 
