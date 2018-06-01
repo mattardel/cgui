@@ -1,7 +1,7 @@
 body                    {background: white;}
 
-.nav_bar                {border: 1px solid white; font-size: 1.5em; margin: 10px; text-align: right;
-                        background-color: white; height: 85px; line-height: 85px;}
+.nav_bar                {border: 1px solid white; font-size: 1.5em; text-align: right; margin: auto;
+                        background-color: white; height: 85px; line-height: 85px; width: 98.5%}
 .nav_bar ul             {list-style-type: none;}
 .nav_bar li             {display: inline-block; vertical-align: bottom;}
 .nav_bar li a           {color: #474c51; text-align: center; text-decoration: none; padding: 8px;}
@@ -9,4 +9,11 @@ body                    {background: white;}
 
 
 .page                   {text-align: center; margin: auto; background: #F2F2F2; padding: 8px;}
-.content                {color: cornflowerblue;}
+.content                {}
+
+.header_container       {position: relative; text-align: center;}
+.header_photo img       {width: 98.5%; padding-top: 10px; margin: auto;}
+.header_photo           {height: 500px; overflow: hidden;}
+.top_left               {position: absolute; top: 15%; left: 7%; padding: 2px; font-size: 2.2em; font-weight: bold;
+                        font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+                        height: 5%; width: 25%; text-align: left; line-height: 1.25em;}

@@ -1,7 +1,15 @@
 {% extends "layout.html" %}
 {% block body %}
     <div class=content>
-        <p>This marks the beginning of the home page.<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />end</p>
+        <div class=header_container>
+            <div class=header_photo>
+                <img src="{{ url_for('static', filename='griffith-sunrise.jpg') }}">
+                <div class=top_left>
+                    The Capital System<br /><i style="font-size: .45em;">Are you getting your money's worth?</i>
+                </div>
+            </div>
+        </div>
+        <p>This marks the beginning of the home page.</p>
     </div>
 
 {% endblock %}
