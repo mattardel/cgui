@@ -1,32 +1,50 @@
 <html>
 <!DOCTYPE html>
 <head>
-    <title>The Capital Advantage</title>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Capital Group Microsite</title>
+    <link href="{{ url_for('static', filename='bootstrap-3.3.7/dist/css/bootstrap.min.css') }}" rel="stylesheet">
     <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}" />
-    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='bootstrap/css/bootstrap.css') }}" />
-    <link rel="stylesheet/less" type="text/css" href="{{ url_for('static', filename='style.less') }}" />
-    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.2/less.min.js" ></script>
 </head>
 
 <body>
-    <div class="page">
-        <div class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <a href="/" class="navbar-brand"><img src="{{ url_for('static', filename='cg_logo.jpg') }}" style="width: 70px; float:left; padding: 5px;"></a>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav navbar-right ">
-                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/test">About</a></li>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#cgNav" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand"><img src="{{ url_for('static', filename='cg_logo.jpg') }}" style="width: 30px;"></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="cgNav">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/test">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="https://www.capitalgroup.com/our-approach.html">Institutional</a></li>
                     <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
                 </ul>
-            </div>
-        </div>
-    {% block body %}{% endblock %}
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="page">
+        {% block body %}{% endblock %}
     </div>
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{{ url_for('static', filename='bootstrap-3.3.7/dist/js/bootstrap.min.js') }}"></script>
 </body>
 
 </html>
