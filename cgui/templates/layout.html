@@ -1,21 +1,27 @@
 <html>
 <!DOCTYPE html>
-<title>The Capital Advantage</title>
-<meta charset="UTF-8">
+<head>
+    <title>The Capital Advantage</title>
+    <meta charset="UTF-8">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet/less" type="text/css" href="{{ url_for('static', filename='style.less') }}" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.2/less.min.js" ></script>
+</head>
 
-<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
-<div class=page>
-
-    <div class=nav_bar>
-        <a href="/"><img src="{{ url_for('static', filename='cg_logo.jpg') }}" style="width: 70px; float:left; padding: 5px;"></a>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/test">About</a></li>
-            <li><a href="https://www.capitalgroup.com/our-approach.html">Institutional</a></li>
-            <li><a href="/contact">Contact</a></li>
-        </ul>
-    </div>
+<body>
+    <div class=page>
+        <div class=nav_bar>
+            <a href="/"><img src="{{ url_for('static', filename='cg_logo.jpg') }}" style="width: 70px; float:left; padding: 5px;"></a>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/test">About</a></li>
+                <li><a href="https://www.capitalgroup.com/our-approach.html">Institutional</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </div>
     {% block body %}{% endblock %}
-</div>
+    </div>
+</body>
+
 </html>
 
