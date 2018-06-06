@@ -66,3 +66,8 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
+
+# Ignore all IDE dotfiles
+
+.idea/
+.idea/workspace.xml
