@@ -1,0 +1,116 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+<!-- SORRY DIRTY CODE LOTS OF INLINE -->
+
+    <div id="investor-header" class="container-flex" style="height: 600px; overflow: hidden; text-shadow: 1px 1px 50px black; background-color:black;
+                                 background-image:url({{ url_for('static', filename='investor-header.png') }});
+                                 background-position: right; background-repeat: no-repeat; background-size:cover;">
+        <div id="header-content" class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div style="color: white; margin: 170 60; text-align: left;">
+                        <h1 style="font-size: 4em;">Take <b>Control</b> of Your Future</h1>
+                        <h2>With the trusted support of the <b>Capital Group team</b> behind you </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <h4 style="color: white;">Learn More</h4>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="one-container" class="container-flex" style="background-image:url({{ url_for('static', filename='vector-squares.png') }}); background-position: bottom right; background-size: 60%; background-repeat: no-repeat;">
+    <div id="one" class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div style="margin: 180 50;">
+                    <h1 style="font-size: 3em;">Our Way of Investing Refined For Over <b>80 Years</b></h1>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div style="margin: 100 30;">
+                    <h2><b>We're In It For the Long Haul</b></h2>
+                    <p style="font-size: 1.3em;">We believe in a <b>commitment</b> to a consistent, <b>long-term</b> approach to investing that has delivered superior results for our investors.</p>
+                    <br>
+                    <h2><b>Teamwork Makes the Dream Work</b></h2>
+                    <p style="font-size: 1.3em;">Instead of relying on individual “star performers” or a committee to manage funds based on consensus, managers and analysts <b>manage
+                        their own</b> divided sleeve of a fund how they want, while <b>collaborating</b> and <b>sharing knowledge</b> with each other.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div id="two-container" class="container-flex" style="background: linear-gradient(to right, #009bde , #9bd2c8)">
+        <div id="two" class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div style="margin: 150 50;">
+                        <img src="{{ url_for('static', filename='media-placeholder.png') }}" style="width: 80%; align: center" alt="Media Placeholder">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div style="margin: 200 30;">
+                        <h2><b>Aliquam vel metus</b></h2>
+                        <p style="font-size: 1.3em;">Maecenas vel placerat ex, vel pharetra libero. In vitae ultrices odio, nec bibendum nisi. Etiam et ligula dui. </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="three-container" class="container-flex" style="background: #f3f4f8">
+        <div id="three" class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div style="margin: 100 50;">
+                        <h2><b>convallis venenatis risus</b></h2>
+                        <h3><b>felis cursus</b></h3>
+                        <p>onec euismod magna a diam facilisis, id pretium purus ullamcorper. Aliquam vel metus id nisl
+                            fermentum commodo quis id quam. Sed rutrum est id nulla lobortis, at venenatis arcu
+                            facilisis.</p>
+                        <h3><b>felis cursus</b></h3>
+                        <p>onec euismod magna a diam facilisis, id pretium purus ullamcorper. Aliquam vel metus id nisl
+                            fermentum commodo quis id quam. Sed rutrum est id nulla lobortis, at venenatis arcu
+                            facilisis.</p>                        <h3><b>felis cursus</b></h3>
+                        <p>onec euismod magna a diam facilisis, id pretium purus ullamcorper. Aliquam vel metus id nisl
+                            fermentum commodo quis id quam. Sed rutrum est id nulla lobortis, at venenatis arcu
+                            facilisis.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div style="margin: 170 50;">
+                        <img src="{{ url_for('static', filename='media-placeholder.png') }}" style="width: 80%; align: center" alt="Media Placeholder">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="four-container" class="container-flex">
+        <div id="four" class="container">
+            <div style="margin: 200 100;">
+                <h1><b>convallis venenatis risus</b></h1>
+                <h3>onec euismod magna a diam facilisis, id pretium purus ullamcorper. Aliquam vel metus id nisl
+                    fermentum commodo quis id quam. Sed rutrum est id nulla lobortis, at venenatis arcu
+                    facilisis.</h3>
+            </div>
+        </div>
+    </div>
+
+    <div id="five-container" class="container-flex" style="background: #f3f4f8">
+        <div id="five" class="container">
+            <div style="margin: 200 100;">
+
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

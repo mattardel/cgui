@@ -5,7 +5,19 @@
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
     <div id="section1">
 
+        <div id="index-header-container" class="container-flex" style="height: 600px; overflow: hidden; background color:black;
+                                 background:url({{ url_for('static', filename='griffith-sunrise.jpg') }});
+                                 background-position: center; background-repeat: no-repeat; background-size:cover;">
+        <div id="index-header" class="container">
+                    <div style="margin: 450 -50; text-align: left; color: white;">
+                        <h1 style="font-size: 4em; text-shadow: 1px 1px 50px black ;">Placeholder Header Title</h1>
+                    </div>
+            </div>
+        </div>
 
+    </div>
+
+        <!--
             <div class=content>
                 <div class=header_container>
                     <div class=header_photo>
@@ -15,8 +27,8 @@
                         </div>
                     </div>
                 </div>
-                <!-- https://getbootstrap.com/docs/4.0/layout/grid/ -->
-                </div>
+            </div>
+         -->
 
         <div class="container">
             <div class="page-header">
@@ -25,15 +37,15 @@
             <div class="row">
                 <div class="col-md-4">
                     <img src="{{ url_for('static', filename='financial.jpg') }}" class="w-50 p-3 img-circle" alt="financial" width="200" height="200"><br>
-                    <button type="button" class="btn btn-primary active">Financial Advisor</button>
+                    <button type="button" class="btn btn-primary active" style="margin: -110;">Financial Advisor</button>
                 </div>
             <div class="col-md-4">
-                <img src="{{ url_for('static', filename='personal.jpg') }}" class="w-50 p-3 img-circle" alt="personal" width="200" height="200"><br>
-                <button type="button" class="btn btn-primary active">Personal Investor</button>
+                <a href="/investor"><img src="{{ url_for('static', filename='personal.jpg') }}" class="w-50 p-3 img-circle" alt="personal" width="200" height="200"><br>
+                <button type="button" class="btn btn-primary active" style="margin: -110;">Personal Investor</button></a>
             </div>
             <div class="col-md-4">
                 <img src="{{ url_for('static', filename='institutional.jpg') }}" class="w-50 p-3 img-circle" alt="institutional" width="200" height="200"><br>
-                <button type="button" class="btn btn-primary active">Personal Investor</button>
+                <button type="button" class="btn btn-primary active" style="margin: -110;">Institution</button>
             </div>
         </div>
 
