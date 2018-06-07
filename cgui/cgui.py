@@ -18,5 +18,10 @@ def show_about():
     #route to contact page
     return render_template('contact.html')
 
+@app.route('/investor')
+def show_investor():
+    #route to investor page
+    return render_template('investor.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
