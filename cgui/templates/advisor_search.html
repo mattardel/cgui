@@ -3,7 +3,7 @@
 
 {% block body %}
 
-<!-- code from: https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-hotelsearch -->
+<!-- code from: https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-locationsearch -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,7 +67,7 @@
         height: 34px;
         margin: 4px;
       }
-      .hotelIcon {
+      .locationIcon {
         width: 24px;
         height: 24px;
       }
@@ -94,31 +94,38 @@
     <div id="advisor-sarch-container" class="container-flex">
         <div class="row">
             <div class="col-md-8">
-                <div id="findadvisor">
-                    Find financial advisor in:
-                </div>
 
-                <div id="controls">
-                    <select id="country">
-                        <option value="all">All</option>
-                        <option value="au">Australia</option>
-                        <option value="br">Brazil</option>
-                        <option value="ca">Canada</option>
-                        <option value="fr">France</option>
-                        <option value="de">Germany</option>
-                        <option value="mx">Mexico</option>
-                        <option value="nz">New Zealand</option>
-                        <option value="it">Italy</option>
-                        <option value="za">South Africa</option>
-                        <option value="es">Spain</option>
-                        <option value="pt">Portugal</option>
-                        <option value="us" selected>U.S.A.</option>
-                        <option value="uk">United Kingdom</option>
-                    </select>
-                </div>
-                <div id="locationField">
-                    <input id="autocomplete" placeholder="Enter a city" type="text" />
-                </div>
+                        <div id="findadvisor">
+                            Find financial advisor in:
+                        </div>
+
+                        <div id="controls" style="padding: 5px;">
+                            <select id="country">
+                                <option value="all">All</option>
+                                <option value="au">Australia</option>
+                                <option value="br">Brazil</option>
+                                <option value="ca">Canada</option>
+                                <option value="fr">France</option>
+                                <option value="de">Germany</option>
+                                <option value="mx">Mexico</option>
+                                <option value="nz">New Zealand</option>
+                                <option value="it">Italy</option>
+                                <option value="za">South Africa</option>
+                                <option value="es">Spain</option>
+                                <option value="pt">Portugal</option>
+                                <option value="us" selected>U.S.A.</option>
+                                <option value="uk">United Kingdom</option>
+                            </select>
+                        </div>
+
+                        <div id="locationField" style="padding: 5px;">
+                            <input id="autocomplete" placeholder="Enter a city" type="text" />
+                        </div>
+
+                        <div id="redoSearch" style="padding: 5px; display: none;">
+                            <button type="redoSearch" class="btn btn-default">Redo search in this area</button>
+                        </div>
+
 
                 <div id="map"></div>
             </div>
@@ -156,9 +163,9 @@
 
             <script>
                   // This example uses the autocomplete feature of the Google Places API.
-                  // It allows the user to find all hotels in a given place, within a given
-                  // country. It then displays markers for all the hotels returned,
-                  // with on-click details for each hotel.
+                  // It allows the user to find all locations in a given place, within a given
+                  // country. It then displays markers for all the locations returned,
+                  // with on-click details for each location.
 
                   // This example requires the Places library. Include the libraries=places
                   // parameter when you first load the API. For example:
@@ -255,6 +262,9 @@
                     // Add a DOM event listener to react when the user selects a country.
                     document.getElementById('country').addEventListener(
                         'change', setAutocompleteCountry);
+
+                    document.getElementById('redoSearch').addEventListener(
+                        'click', search);
                   }
 
                   // When the user selects a city, get the place details for the city and
@@ -263,25 +273,30 @@
                     var place = autocomplete.getPlace();
                     if (place.geometry) {
                       map.panTo(place.geometry.location);
-                      map.setZoom(15);
+                      map.setZoom(12);
                       search();
                     } else {
                       document.getElementById('autocomplete').placeholder = 'Enter a city';
                     }
+
+                    var redoButton = document.getElementById('redoSearch');
+                    if (redoButton.style.display == 'none') {
+                        redoButton.style.display = 'block';
+                    }
                   }
 
-                  // Search for hotels in the selected city, within the viewport of the map.
+                  // Search for locations in the selected city, within the viewport of the map.
                   function search() {
                     var search = {
                       bounds: map.getBounds(),
-                      types: ['bank']
+                      query: 'edward jones'
                     };
 
-                    places.nearbySearch(search, function(results, status) {
+                    places.textSearch(search, function(results, status) {
                       if (status === google.maps.places.PlacesServiceStatus.OK) {
                         clearResults();
                         clearMarkers();
-                        // Create a marker for each hotel found, and
+                        // Create a marker for each location found, and
                         // assign a letter of the alphabetic to each marker icon.
                         for (var i = 0; i < results.length; i++) {
                           var markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
@@ -292,7 +307,7 @@
                             animation: google.maps.Animation.DROP,
                             icon: markerIcon
                           });
-                          // If the user clicks a hotel marker, show the details of that hotel
+                          // If the user clicks a location marker, show the details of that location
                           // in an info window.
                           markers[i].placeResult = results[i];
                           google.maps.event.addListener(markers[i], 'click', showInfoWindow);
@@ -367,8 +382,8 @@
                     }
                   }
 
-                  // Get the place details for a hotel. Show the information in an info window,
-                  // anchored on the marker for the hotel that the user selected.
+                  // Get the place details for a location. Show the information in an info window,
+                  // anchored on the marker for the location that the user selected.
                   function showInfoWindow() {
                     var marker = this;
                     places.getDetails({placeId: marker.placeResult.place_id},
@@ -383,7 +398,7 @@
 
                   // Load the place information into the HTML elements used by the info window.
                   function buildIWContent(place) {
-                    document.getElementById('iw-icon').innerHTML = '<img class="hotelIcon" ' +
+                    document.getElementById('iw-icon').innerHTML = '<img class="locationIcon" ' +
                         'src="' + place.icon + '"/>';
                     document.getElementById('iw-url').innerHTML = '<b><a href="' + place.url +
                         '">' + place.name + '</a></b>';
