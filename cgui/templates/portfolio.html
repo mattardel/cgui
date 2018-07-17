@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+    <div>
+        <h1>Test Portfolio Manager</h1>
+    </div>
+    <div>
+        <label for="symbol">Symbol:</label>
+        <input type="text" id="symbol" placeholder="i.e. 'MSFT' for 'microsoft'"/>
+        <input type="submit" value="submit" onclick="getAVData()"/>
+    </div>
+    <div>
+        <p id="avData" style="text-align: left;"></p>
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script src="{{ url_for('static', filename='scripts/require.js') }}"></script>
+    <script>
+
+        function getAVData () {
+            var request = new XMLHttpRequest();
+            var avKey = 'X61RJDJCU557MHDV';
+            var avSym = document.getElementById('symbol').value.toUpperCase();
+            var avURL = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=' + avSym + '&apikey=' + avKey;
+
+            request.open('GET', avURL, true);
+            request.onload = function () {
+                var data = JSON.parse(this.response);
+
+                if (request.status >= 200 && request.status < 400) {
+                    var dataString = JSON.stringify(data, undefined, 2);
+                    console.log(data);
+                    document.getElementById('avData').innerHTML = dataString;
+                } else {
+                    console.log('error');
+                    document.getElementById('avData').innerHTML = "Error with symbol name.";
+                }
+            }
+            request.send();
+        }
+
+    </script>
+{% endblock %}

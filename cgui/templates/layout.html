@@ -10,7 +10,6 @@
 </head>
 
 <body>
-
     <nav class="navbar navbar-inverse navbar-static-top" style="margin: 0px;">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -46,6 +45,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="{{ url_for('static', filename='bootstrap-3.3.7/dist/js/bootstrap.min.js') }}"></script>
+
+    {% block js %}{% endblock %}
 </body>
 
 </html>
