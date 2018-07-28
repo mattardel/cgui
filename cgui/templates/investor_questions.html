@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block body %}
+
+    <!-- The scrollable area -->
+    <body data-spy="scroll" data-target=".navbar" data-offset="50">
+    <div id="section1">
+
+        <div id="index-header-container" class="container-flex"
+             style="height: 600px; overflow: hidden; background color:black;
+                     background:url({{ url_for('static', filename='griffith-sunrise.jpg') }});
+                     background-position: center; background-repeat: no-repeat; background-size:cover;">
+            <div id="index-header" class="container">
+                <div style="margin: 450 -50; text-align: left; color: white;">
+                    <h1 style="font-size: 4em; text-shadow: 1px 1px 50px black ;">Placeholder Header Title</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--begin form-->
+    <div class="container">
+        <form method="POST" action="/">
+            {{ form.csrf_token }}
+            {{ form.name.label }} {{ form.name(size=20) }}
+            <input type="submit" value="Go">
+        </form>
+    </div>
+{% endblock %}
