@@ -6,32 +6,34 @@
         <h1>Test Portfolio Manager</h1>
     </div>
     <div>
-        <label for="symbol">Symbol:</label>
-        <input type="text" id="symbol" placeholder="i.e. 'MSFT' for 'microsoft'"/>
+        <select name="all_funds" id="symbol">
+            {% for key, value in mutual_funds.items() %}
+                <option value={{key}}>{{value}}</option>
+            {% endfor %}
+        </select>
         <input type="submit" value="submit" onclick="getAVData()"/>
     </div>
     <div>
-        <p id="avData" style="text-align: left;"></p>
+        <p id="avData"></p>
     </div>
 {% endblock %}
 
 {% block js %}
-    <script src="{{ url_for('static', filename='scripts/require.js') }}"></script>
     <script>
 
         function getAVData () {
             var request = new XMLHttpRequest();
             var avKey = 'X61RJDJCU557MHDV';
             var avSym = document.getElementById('symbol').value.toUpperCase();
+            <!-- TIME_SERIES_DAILY => 1 day intervals -->
             var avURL = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=' + avSym + '&apikey=' + avKey;
-
             request.open('GET', avURL, true);
             request.onload = function () {
-                var data = JSON.parse(this.response);
+                var data1 = JSON.parse(this.response);
 
                 if (request.status >= 200 && request.status < 400) {
-                    var dataString = JSON.stringify(data, undefined, 2);
-                    console.log(data);
+                    var dataString = JSON.stringify(data1, undefined, 2);
+                    console.log(data1);
                     document.getElementById('avData').innerHTML = dataString;
                 } else {
                     console.log('error');
@@ -39,6 +41,32 @@
                 }
             }
             request.send();
+        }
+
+        function recursiveGetClosing (fund, lookup, callback) {
+            for (property in fund) {
+                if (property == lookup) {
+                    callback(fund[property]);
+                } else if (fund[property] instanceof Object) {
+                    recursiveGetClosing(fund[property], lookup, callback);
+                }
+            }
+        }
+
+        function calculateCorrelation (fundJSON1, fundJSON2) {
+            <!-- IN PROGRESS - Finds the correlation coefficient between 2 funds -->
+            <!-- Gather the closing data of each fund into arrays -->
+            fund1Closings = [];
+            recursiveGetClosing(fundJSON1, "4. close", function(fund) {
+                fund1Closings.push(fund);
+            });
+            fund2Closings = [];
+            recursiveGetClosing(fundJSON2, "4. close", function(fund) {
+                fund2Closings.push(fund);
+            });
+
+            console.log(fund1closings);
+            console.log(fund2closings);
         }
 
     </script>
