@@ -1,0 +1,49 @@
+@brand-color: #009bde;
+@secondary-color: #777777;
+@title-color: #555555;
+@primary-font: avenir;
+@paragraph-font: 1em;
+
+
+html{ font-feature-settings: normal;
+  font-family: @primary-font, sans-serif;
+}
+
+h1 {
+color: @title-color;
+font-size:1.8em;
+}
+
+h2 {
+  color: #000000;
+  font-size:1.5em;
+}
+
+h3 {
+  color: @brand-color;
+  font-size:1.3em;
+}
+
+h4 {
+  color: @secondary-color;
+  font-size:1.2em;
+  text-transform: uppercase;
+}
+
+h5 {
+  color: @secondary-color;
+  font-size:@paragraph-font;
+}
+
+p{
+  color: #434343;
+  font-size: @paragraph-font;
+}
+
+a{
+  color: @brand-color;
+}
+
+a:hover{
+color: gold;
+}
