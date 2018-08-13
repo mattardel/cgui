@@ -1,19 +1,40 @@
-body                    {background: white; font-weight: light;}
-
-.nav_bar                {border: 1px solid white; font-size: 1.5em; text-align: right; margin: auto;
-                        background-color: white; height: 85px; line-height: 85px; width: 98.5%}
-.nav_bar ul             {list-style-type: none;}
-.nav_bar li             {display: inline-block; vertical-align: bottom;}
-.nav_bar li a           {color: #474c51; text-align: center; text-decoration: none;}
-.nav_bar li a:hover     {background-color: #F2F2F2;}
-
-
-.page                   {text-align: center; margin: auto; background: white;}
-.content                {}
-
-.header_container       {position: relative; text-align: center;}
-.header_photo img       {width: 98.5%; padding-top: 10px; margin: auto;}
-.header_photo           {height: 500px; overflow: hidden;}
-.top_left               {position: absolute; top: 15%; left: 7%; padding: 2px; font-size: 2.2em; font-weight: bold;
-                        font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
-                        height: 5%; width: 25%; text-align: left; line-height: 1.25em;}
+body {
+  font-feature-settings: normal;
+  font-family: avenir, sans-serif;
+}
+.title-size {
+  color: #009bde;
+  font-size: 3em;
+}
+h1 {
+  color: #555555;
+  font-size: 3em;
+}
+h2 {
+  color: #009bde;
+  font-size: 1.5em;
+}
+h3 {
+  color: #009bde;
+  font-size: 1.3em;
+}
+h4 {
+  color: #777777;
+  font-size: 1.2em;
+  text-transform: uppercase;
+}
+h5 {
+  color: #777777;
+  font-size: 1em;
+}
+p {
+  color: #009bde;
+  font-size: 1em;
+}
+a {
+  color: #009bde;
+}
+a:hover {
+  color: gold;
+}
+/*# sourceMappingURL=style.css.map */
