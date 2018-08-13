@@ -19,9 +19,9 @@
 
     <!--begin form-->
     <div class="container">
-        <form method="POST" action="/">
+        <form action="{{ url_for('screener') }}" method=post class="form form-horizontal" role="form">
             {{ form.csrf_token }}
-            {{ form.name.label }} {{ form.name(size=20) }}
+            {{ form.name.label }} {{ form.name }}
             <input type="submit" value="Go">
         </form>
     </div>
