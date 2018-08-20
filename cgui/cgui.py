@@ -23,11 +23,16 @@ def show_investor():
     #route to investor page
     return render_template('investor.html')
 
+@app.route('/scale')
+def show_scale():
+    #route toscale page
+    return render_template('scale.html')
+
 @app.route('/portfolio')
 def show_portfolio():
     funds_dict = {
             'AMCPX':'AMCAP Fund',
-            'AMRMX':'American Mutual Fund® Class A',
+            'AMRMX':'American Mutual Fund Class A',
             'INPAX':'Conservative Growth and Income Portfolio',
             'BFCAX':'Corporate Bond Fund',
             'DWGAX':'Developing World Growth and Income Fund',
