@@ -1,7 +1,110 @@
 {% extends "layout.html" %}
 {% block body %}
-    <div class=content>
-        <p>This is the general use test page.</p>
+<!-- SORRY DIRTY CODE LOTS OF INLINE -->
+
+    <div id="investor-header" class="container-flex" style="height: 600px; overflow: hidden; text-shadow: 1px 1px 50px black; background-color:black;
+                                 background-image:url({{ url_for('static', filename='investor-header.png') }});
+                                 background-position: right; background-repeat: no-repeat; background-size:cover;">
+        <div id="header-content" class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div style="color: white; margin: 170 60; text-align: left;">
+                        <h1 style="font-size: 4em;">Individual Investors</h1>
+                        <h3>We help millions of individual investors around the world meet their financial goals. We are
+                            the home of American Funds in the U.S., and also offer investment funds and mutual funds in
+                            Australia, Canada, Europe and Japan.</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <h4 style="color: white;">Learn More</h4>
+            </div>
+        </div>
+
     </div>
+
+    <div id="one-container" class="container-flex" style="background-image:url({{ url_for('static', filename='vector-squares.png') }}); background-position: bottom right; background-size: 60%; background-repeat: no-repeat;">
+    <div id="one" class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div style="margin: 180 50;">
+                    <h1 style="font-size: 3em;">Our Way of Investing Refined For Over <b>80 Years</b></h1>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div style="margin: 100 30;">
+                    <h2><b>We're In It For the Long Haul</b></h2>
+                    <p style="font-size: 1.3em;">We believe in a <b>commitment</b> to a consistent, <b>long-term</b> approach to investing that has delivered superior results for our investors.</p>
+                    <br>
+                    <h2><b>Teamwork Makes the Dream Work</b></h2>
+                    <p style="font-size: 1.3em;">Instead of relying on individual “star performers” or a committee to manage funds based on consensus, managers and analysts <b>manage
+                        their own</b> divided sleeve of a fund how they want, while <b>collaborating</b> and <b>sharing knowledge</b> with each other.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div id="two-container" class="container-flex" style="background: linear-gradient(to right, #009bde , #9bd2c8)">
+        <div id="two" class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div style="margin: 150 50;">
+                        <img src="{{ url_for('static', filename='media-placeholder.png') }}" style="width: 80%; align: center" alt="Media Placeholder">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div style="margin: 150 30;">
+                        <h2><b>Aligned With Investor Success</b></h2>
+                        <p style="font-size:1.3em">We base our decisions on a long-term perspective, which we believe
+                            aligns our goals with the interests of our clients. Achieving superior, long-term returns is
+                            our only goal, so managers are rewarded for their results, not the level of assets they manage.
+                            Collectively, Capital Group associates are significant investors in the company's investment offerings. </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="three-container" class="container-flex" style="background: #f3f4f8">
+        <div id="three" class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div style="margin: 70 40;">
+                        <h3><b>A Diversified Portfolio</b></h3>
+                        <p>The end result of the Capital Process is a diversified portfolio composed of individual managers'
+                            and analysts' highest conviction investment ideas. Combining the experienced managers' best
+                            independent decisions that are consistent with the investment offering's specific objectives
+                            delivers a portfolio with the potential for superior results over time.</p>
+                        <h3><b>Governance</b></h3>
+                        <p>A multilayered governance structure oversees the system, enabling managers to act with
+                            confidence while managing their sleeve for optimum long-term results. Managers and analysts share
+                            information and opinions with their colleagues and challenge each other's decisions.</p>
+                        <h3><b>Experience over cycles defines our stability</b></h3>
+                        <p>Why it matters: generations of knowledge over multiple full market cycles provides our clients
+                            an experience advantage.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div style="margin: 170 50;">
+                        <img src="{{ url_for('static', filename='media-placeholder.png') }}" style="width: 80%; align: center" alt="Media Placeholder">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="four-container" class="container-flex">
+        <div id="four" class="container">
+            <div style="margin: 80 50;">
+                <h1>“In consulting and industry circles, stability of management is often considered the best measure of investment
+                    culture. ...Creating a healthy culture where very skilled and sought after investment professionals want to
+                    stay for their whole career is one of the hardest things to do in the money management world.”</h1>
+            </div>
+        </div>
+    </div>
+
+
 
 {% endblock %}

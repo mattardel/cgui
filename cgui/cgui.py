@@ -23,5 +23,10 @@ def show_investor():
     #route to investor page
     return render_template('investor.html')
 
+@app.route('/investor_details')
+def show_investor_details():
+    #route to investor_details page
+    return render_template('investor_details.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
