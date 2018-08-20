@@ -7,6 +7,7 @@
     <title>Capital Group Microsite</title>
     <link href="{{ url_for('static', filename='bootstrap-3.3.7/dist/css/bootstrap.min.css') }}" rel="stylesheet">
     <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}" >
+
 </head>
 
 <body>
@@ -35,16 +36,36 @@
         </div><!-- /.container-fluid -->
     </nav>
 
+
     <div class="page">
         {% block body %}{% endblock %}
     </div>
 
 
+<!-- Footer -->
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+ <div id="wrap" style="background-color: #2f6f9f">
+    <div id="main" class="container clear-top" >
+        <div class="row">
+            <div class="span12">
+            <br>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer" style="background-color:#3c3c3c">
+        <div class="text-right text-uppercase">
+            <h5 style="padding-right: 10px; color:lightblue">A project by Team CGUI of the University of California, Irvine</h5>
+        </div>
+    </footer>
+ </div>
+    <!-- end Footer -->
+
+     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="{{ url_for('static', filename='bootstrap-3.3.7/dist/js/bootstrap.min.js') }}"></script>
+
 </body>
 
 </html>

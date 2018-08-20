@@ -63,55 +63,66 @@ body {
   line-height: 1.25em;
 }
 
-/* ID example */
+/* ID example
 #cgui-h1 {
     color: red;
-}
+} */
 
-#cgui-h2 {
-    color: blue;
-}
 
-/*  Sara  */
-.title-size {
+/*  Sara  - Variables*/
+
+.cg-bigheader{
+font-size: 4em;
+}
+.cg-blue {
   color: #009bde;
-  font-size: 3em;
 }
-h1 {
+.cg-darkgray {
   color: #555555;
-  font-size: 3em;
 }
-h2 {
-  color: #009bde;
-  font-size: 1.5em;
-}
-h3 {
-  color: #009bde;
-  font-size: 1.3em;
-}
+.cg-mediumgray
 h4 {
   color: #777777;
   font-size: 1.2em;
   text-transform: uppercase;
 }
-h5 {
-  color: #777777;
-  font-size: 1em;
-}
-p {
-  color: #009bde;
-  font-size: 1em;
-}
 
 a:link {
-  color: #de317a;
+  color: #009bde;
     background-color: transparent;
      text-decoration: none;
 }
 
 a:hover {
-  color: gold;
+  color: #99d7f1;
     background-color: transparent;
      text-decoration: underline;
 }
+
+
+/* Footer */
+html,body {
+height:100%;
+}
+
+#wrap {
+min-height: 100%;
+}
+
+#main {
+overflow:auto;
+padding-bottom:80px; /* this needs to be bigger than footer height*/
+}
+
+.footer {
+position: relative;
+margin-top: -70px; /* negative value of footer height */
+height: 70px;
+clear:both;
+padding-top:10px;
+    padding-bottom:10px;
+
+color:#fff;
+}
+
 /*# sourceMappingURL=style.css.map */
