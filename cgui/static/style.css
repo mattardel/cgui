@@ -123,6 +123,11 @@ input::placeholder {
   text-decoration: underline;
   text-decoration-color: #009bde;
 }
+.intro-icon {
+  width: 30%;
+  margin: auto;
+  padding: 0 0 20 0;
+}
 
 /* IDs */
 #investor-header {

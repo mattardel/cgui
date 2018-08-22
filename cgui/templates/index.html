@@ -14,9 +14,6 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <h4 class="white uppercase">Learn More</h4>
-            </div>
         </div>
     </div>
 
@@ -24,11 +21,36 @@
 <!--Portfolio Optimizer -->
     <div id="intro-container" class="container-fluid cg-bluegradient-bg">
         <div class="container">
-            <div class="col-md-12" style="padding: 0 100">
-                <div style="margin: 150 50;">
+            <div class="row">
+                <div class="col-md-12" style="margin: 100 0 20 0; padding: 0 150">
                     <h2>Take the <b class="white-underline">first step</b> of your financial journey with a few clicks to get your started with a <b class="white-underline">sample portfolio</b> based on your needs.</h2>
-                    <br><br>
-                    <h3 class="black">Let's get started!</h3>
+                </div>
+            </div>
+
+            <div class="row" style="margin: 60 0 0 0">
+                <div class="col-md-4" style="margin: 0 0 50 0">
+                    <a href="#screener">
+                        <img class="img-responsive intro-icon" src="/static/screener_icon.png" alt="Funds Screener">
+                        <h3 class="white">Take a quick quiz for sample portfolio.</h3>
+                    </a>
+                </div>
+                <div class="col-md-4" style="margin: 0 0 50 0">
+                    <a href="#optimizer">
+                        <img class="img-responsive intro-icon" src="/static/optimizer_icon.png" alt="Portfolio Optimizer">
+                        <h3 class="white">Balance your portfolio.</h3>
+                    </a>
+                </div>
+                <div class="col-md-4" style="margin: 0 0 50 0">
+                    <a href="#locator">
+                        <img class="img-responsive intro-icon" src="/static/locator_icon.png" alt="Advisor Locator">
+                        <h3 class="white">Find a financial advisor near you.</h3>
+                    </a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12" style="margin: 0 0 100 0;">
+                    <h2><b>Let's get started!</b></h2>
                 </div>
             </div>
         </div>
@@ -37,8 +59,8 @@
 
 <!--Question Flow -->
 
- <div id="screener-container" class="container-fluid">
- <div id="screener" class="container">
+ <div id="screener" class="container-fluid">
+ <div class="container">
     <div class="row">
         <div style="margin: 100 50;">
             <h1 class="cg-blue">Answer some questions about yourself</h1>
@@ -50,18 +72,18 @@
  </div>
 
 <!--Portfolio Optimizer -->
-    <div id="two-container" class="container-fluid cg-bluegradient-bg">
-        <div id="two" class="container">
-                <div class="col-md-6">
-                    <div style="margin: 100 50;">
-                        <h2><b>Let's diversify!</b></h2>
-                    </div>
+<div id="optimizer" class="container-fluid cg-bluegradient-bg">
+    <div class="container">
+            <div class="col-md-6">
+                <div style="margin: 100 50;">
+                    <h2><b>Let's diversify!</b></h2>
                 </div>
             </div>
         </div>
+    </div>
 
 <!--Financial Advisor Locator -->
- <div id="locator-container" class="container-fluid cg-whitebluegradient-bg">
+ <div id="locator" class="container-fluid cg-whitebluegradient-bg">
      <div class="row" style="padding: 50 50 20 50">
          <h1>Find a financial advisor</h1>
          <h4>Take the first step of your financial journey with your newly gained knowledge</h4>
@@ -404,8 +426,7 @@
     </div>
  </div>
 
-<div id="cginfo1-container" class="container" style="background-image:url({{ url_for('static', filename='vector-squares.png') }}); background-position: bottom right; background-size: 60%; background-repeat: no-repeat;">
-
+<div id="cginfo-one" class="container" style="background-image:url({{ url_for('static', filename='vector-squares.png') }}); background-position: bottom right; background-size: 60%; background-repeat: no-repeat;">
         <div class="row">
             <div class="col-md-6">
                 <div style="margin: 180 50;">
@@ -428,62 +449,60 @@
 
 
 <!--Contact Us -->
-<div id="four-container" class="container-fluid" style="">
-    <div id="four" class="container">
-      <div class="container" style="background: white; padding-bottom: 40px;">
-             <div class="page-header">
-                <h2>Contact Us</h2>
-            </div>
-              <div class="row">
-                  <div class="col-md-6 col-md-offset-3">
-                    <form>
-                      <div class="form-row">
-                        <div class="form-group col-md-6">
-                          <input type="text" class="form-control" id="inputFName" placeholder="First Name">
-                        </div>
-                        <div class="form-group col-md-6">
-                          <input type="text" class="form-control" id="inputLName" placeholder="Last Name">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <input type="text" class="form-control" id="inputEmail" placeholder="Email">
-                      </div>
-                      <div class="form-group">
-                        <input type="text" class="form-control" id="inputNumber" placeholder="Phone Number">
-                      </div>
-                      <div class="form-group">
-                        <input type="text" class="form-control" id="inputAddress" placeholder="Address">
-                      </div>
-                      <div class="form-group">
-                        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-                      </div>
-                      <div class="form-row">
-                        <div class="form-group col-md-6">
-                          <input type="text" class="form-control" id="inputCity" placeholder="City">
-                        </div>
-                        <div class="form-group col-md-4">
-                          <select id="inputState" class="form-control">
-                            <option selected>State</option>
-                            <option>...</option>
-                          </select>
-                        </div>
-                        <div class="form-group col-md-2">
-                          <input type="text" class="form-control" id="inputZip" placeholder="Zip">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" id="gridCheck">
-                          <label class="form-check-label" for="gridCheck">
-                            I give my permission for a representative to contact me.
-                          </label>
-                        </div>
-                      </div>
-                      <button type="submit" class="btn btn-primary">Sign up</button>
-                  </form>
-              </div>
-          </div>
+<div id="contact" class="container-fluid">
+    <div class="container" style="background: white; padding-bottom: 40px;">
+         <div class="page-header">
+            <h2>Contact Us</h2>
         </div>
+          <div class="row">
+              <div class="col-md-6 col-md-offset-3">
+                <form>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <input type="text" class="form-control" id="inputFName" placeholder="First Name">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <input type="text" class="form-control" id="inputLName" placeholder="Last Name">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="inputEmail" placeholder="Email">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="inputNumber" placeholder="Phone Number">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="inputAddress" placeholder="Address">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <input type="text" class="form-control" id="inputCity" placeholder="City">
+                    </div>
+                    <div class="form-group col-md-4">
+                      <select id="inputState" class="form-control">
+                        <option selected>State</option>
+                        <option>...</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <input type="text" class="form-control" id="inputZip" placeholder="Zip">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="gridCheck">
+                      <label class="form-check-label" for="gridCheck">
+                        I give my permission for a representative to contact me.
+                      </label>
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Sign up</button>
+              </form>
+          </div>
+      </div>
     </div>
 </div>
 
