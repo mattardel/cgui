@@ -1,11 +1,22 @@
-/*  Matt  */
-
+/* element styles */
 body {
   background: white;
   font-weight: light;
-    font-feature-settings: normal;
-  font-family: avenir, sans-serif;
+  font-feature-settings: normal;
+  font-family: 'Nunito Sans', sans-serif;
 }
+a:link {
+  color: #009bde;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: #99d7f1;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+/* bootstrap overrides */
 .nav_bar {
   border: 1px solid white;
   font-size: 1.5em;
@@ -31,6 +42,8 @@ body {
 .nav_bar li a:hover {
   background-color: #F2F2F2;
 }
+
+/* classes */
 .page {
   text-align: center;
   margin: auto;
@@ -62,17 +75,8 @@ body {
   text-align: left;
   line-height: 1.25em;
 }
-
-/* ID example
-#cgui-h1 {
-    color: red;
-} */
-
-
-/*  Sara  - Variables*/
-
 .cg-bigheader{
-font-size: 4em;
+  font-size: 4em;
 }
 .cg-blue {
   color: #009bde;
@@ -80,49 +84,67 @@ font-size: 4em;
 .cg-darkgray {
   color: #555555;
 }
-.cg-mediumgray
-h4 {
+.cg-mediumgray {
+  color: #777777;
+}
+.cg-mediumgray h4 {
   color: #777777;
   font-size: 1.2em;
   text-transform: uppercase;
 }
-
-a:link {
-  color: #009bde;
-    background-color: transparent;
-     text-decoration: none;
+.cg-bluegradient-bg {
+  background: linear-gradient(to right, #009bde, #9bd2c8);
+}
+.cg-whitebluegradient-bg {
+  background: linear-gradient(to bottom, white, #ccebf8);
+}
+.white {
+  color: white;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+.white-underline {
+  text-decoration: underline;
+  text-decoration-color: white;
+}
+.black-underline {
+  text-decoration: underline;
+  text-decoration-color: black;
+}
+.cg-blue-underline {
+  text-decoration: underline;
+  text-decoration-color: #009bde;
 }
 
-a:hover {
-  color: #99d7f1;
-    background-color: transparent;
-     text-decoration: underline;
+/* IDs */
+#investor-header {
+  height: 600px;
+  overflow: hidden;
+  text-shadow: 1px 1px 50px black;
+  background:url('/static/investor-header.png') right no-repeat;
 }
-
 
 /* Footer */
 html,body {
-height:100%;
+  height:100%;
 }
 
 #wrap {
-min-height: 100%;
+  min-height: 100%;
 }
 
 #main {
-overflow:auto;
-padding-bottom:80px; /* this needs to be bigger than footer height*/
+  overflow:auto;
+  padding-bottom:80px; /* this needs to be bigger than footer height*/
 }
 
 .footer {
-position: relative;
-margin-top: -70px; /* negative value of footer height */
-height: 70px;
-clear:both;
-padding-top:10px;
-    padding-bottom:10px;
-
-color:#fff;
+  position: relative;
+  margin-top: -70px; /* negative value of footer height */
+  height: 70px;
+  clear:both;
+  padding-top:10px;
+  padding-bottom:10px;
+  color:#fff;
 }
-
-/*# sourceMappingURL=style.css.map */

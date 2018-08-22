@@ -28,5 +28,18 @@ def show_investor_details():
     #route to investor_details page
     return render_template('investor_details.html')
 
+@app.route('/advisor_search')
+def show_advisor_search():
+    #route to advisor search page
+    return render_template('advisor_search.html')
+
+@app.route('/investor_questions', methods=['GET', 'POST'])
+def screener():
+    form = ScreeningForm()
+    if request.method=='POST':
+        return render_template('investor_questions.html', form=form)
+    elif request.method=='GET':
+        return render_template('investor_questions.html', form=form)
+
 if __name__ == '__main__':
     app.run(debug=True)
