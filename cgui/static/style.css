@@ -1,4 +1,4 @@
-/* element styles */
+/* element and overrides */
 body {
   background: white;
   font-weight: light;
@@ -15,8 +15,6 @@ a:hover {
   background-color: transparent;
   text-decoration: underline;
 }
-
-/* bootstrap overrides */
 .nav_bar {
   border: 1px solid white;
   font-size: 1.5em;
@@ -41,6 +39,15 @@ a:hover {
 }
 .nav_bar li a:hover {
   background-color: #F2F2F2;
+}
+.form-control {
+  border: 0;
+  border-radius: 0;
+  border-bottom: black solid 2px;
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+}
+input::placeholder {
+  font-size: large;
 }
 
 /* classes */
