@@ -105,6 +105,10 @@ input::placeholder {
 .cg-whitebluegradient-bg {
   background: linear-gradient(to bottom, white, #ccebf8);
 }
+.cg-squares-bg {
+  background:url('/static/vector-squares.png') bottom right no-repeat;
+  background-size: 60%;
+}
 .white {
   color: white;
 }
@@ -119,7 +123,7 @@ input::placeholder {
   text-decoration: underline;
   text-decoration-color: black;
 }
-.cg-blue-underline {
+.cgblue-underline {
   text-decoration: underline;
   text-decoration-color: #009bde;
 }
@@ -143,7 +147,7 @@ html,body {
 }
 
 #wrap {
-  min-height: 100%;
+  min-height: 100;
 }
 
 #main {

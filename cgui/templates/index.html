@@ -18,7 +18,7 @@
     </div>
 
 
-<!--Portfolio Optimizer -->
+<!-- Intro -->
     <div id="intro-container" class="container-fluid cg-bluegradient-bg">
         <div class="container">
             <div class="row">
@@ -57,33 +57,47 @@
     </div>
 
 <!-- CG informational -->
-<div id="cginfo-one" class="container" style="background-image:url({{ url_for('static', filename='vector-squares.png') }}); background-position: bottom right; background-size: 60%; background-repeat: no-repeat;">
-        <div class="row">
-            <div class="col-md-6">
-                <div style="margin: 180 50;">
-                    <h1 style="font-size: 3em;">Our Way of Investing Refined For Over <b>80 Years</b></h1>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div style="margin: 100 30;">
-                    <h2><b>We're In It For the Long Haul</b></h2>
-                    <p style="font-size: 1.3em;">We believe in a <b>commitment</b> to a consistent, <b>long-term</b> approach to investing that has delivered superior results for our investors.</p>
-                    <br>
-                    <h2><b>Teamwork Makes the Dream Work</b></h2>
-                    <p style="font-size: 1.3em;">Instead of relying on individual “star performers” or a committee to manage funds based on consensus, managers and analysts <b>manage
-                        their own</b> divided sleeve of a fund how they want, while <b>collaborating</b> and <b>sharing knowledge</b> with each other.</p>
-                </div>
+<div id="cginfo-one" class="container cg-squares-bg">
+    <div class="row">
+        <div class="col-md-6">
+            <div style="margin: 180 50;">
+                <h1 style="font-size: 3em;">Our Way of Investing Refined For Over <b>80 Years</b></h1>
             </div>
         </div>
-
+        <div class="col-md-6">
+            <div style="margin: 100 30;">
+                <h2><b>We're In It For the Long Haul</b></h2>
+                <p style="font-size: 1.3em;">We believe in a <b>commitment</b> to a consistent, <b>long-term</b> approach to investing that has delivered superior results for our investors.</p>
+                <br>
+                <h2><b>Teamwork Makes the Dream Work</b></h2>
+                <p style="font-size: 1.3em;">Instead of relying on individual “star performers” or a committee to manage funds based on consensus, managers and analysts <b>manage
+                    their own</b> divided sleeve of a fund how they want, while <b>collaborating</b> and <b>sharing knowledge</b> with each other.</p>
+            </div>
+        </div>
+    </div>
  </div>
+
+<div id="cginfo-two" class="container-fluid cg-bluegradient-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div style="margin: 250 0;">
+                    <h1 class="white-underline"><b>The Capital System</b></h1>
+                </div>
+            </div>
+            <div class="col-md-6" style="margin: 250 0;">
+                <h2>GIF here?</h2>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <!--Question Flow -->
  <div id="screener" class="container-fluid">
  <div class="container">
-    <div class="row">
-        <div style="margin: 100 50;">
+    <div class="row" style="margin: 200 0;">
+        <div class="col-md-12">
             <h1 class="cg-blue">Answer some questions about yourself</h1>
         </div>
 
@@ -93,10 +107,10 @@
  </div>
 
 <!--Portfolio Optimizer -->
-<div id="optimizer" class="container-fluid cg-bluegradient-bg">
+<div id="optimizer" class="container-fluid cg-squares-bg">
     <div class="container">
-            <div class="col-md-6">
-                <div style="margin: 100 50;">
+            <div class="row" style="margin: 200 0;">
+                <div class="col-md-12">
                     <h2><b>Let's diversify!</b></h2>
                 </div>
             </div>
@@ -109,14 +123,14 @@
          <h1>Find a financial advisor</h1>
          <h4>Take the first step of your financial journey with your newly gained knowledge</h4>
      </div>
-    <div class="row" style="padding: 0 50 50 50;">
+    <div class="row" style="padding: 0 50 80 50;">
         <div class="col-md-8">
 
             <div id="findadvisor">
                 Find financial advisor in:
             </div>
 
-            <div id="controls" style="padding: 5px;">
+            <div id="controls" style="padding: 15 0 5 0;">
                 <select id="country">
                     <option value="all">All</option>
                     <option value="au">Australia</option>
@@ -133,14 +147,18 @@
                     <option value="us" selected>U.S.A.</option>
                     <option value="uk">United Kingdom</option>
                 </select>
-            </div>
-
-            <div id="locationField" style="padding: 5px;">
                 <input id="autocomplete" placeholder="Enter a city" type="text" />
             </div>
 
+            <div id="companyChooser">
+                <input type="radio" name="company" id="edwardjones" value="edwardjones" checked="checked" /> Edward Jones
+                <input type="radio" name="company" id="wellsfargo" value="wellsfargo" /> Wells Fargo Advisors
+                <input type="radio" name="company" id="" value="" />
+                <input type="radio" name="company" id="" value="" />
+            </div>
+
             <div id="redoSearch" style="padding: 5px; display: none;">
-                <button type="redoSearch" class="btn btn-default">Redo search in this area</button>
+                <button type="redoSearch" class="btn btn-default">Refresh search</button>
             </div>
 
 
@@ -453,7 +471,7 @@
 
 <!--Contact Us -->
 <div id="contact" class="container-fluid">
-    <div class="container" style="background: white; padding-bottom: 40px;">
+    <div class="container" style="margin: 100 auto">
          <div class="page-header">
             <h2>Contact Us</h2>
         </div>
