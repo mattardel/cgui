@@ -139,6 +139,7 @@ input::placeholder {
   overflow: hidden;
   text-shadow: 1px 1px 50px black;
   background:url('/static/investor-header.png') right no-repeat;
+  background-size: cover;
 }
 
 /* Footer */
