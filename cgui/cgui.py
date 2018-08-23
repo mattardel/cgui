@@ -25,6 +25,11 @@ def show_investor():
     #route to investor page
     return render_template('investor.html')
 
+@app.route('/scale')
+def show_scale():
+    #route toscale page
+    return render_template('scale.html')
+
 @app.route('/portfolio')
 def show_portfolio():
     # route to investor page
