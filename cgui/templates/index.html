@@ -8,7 +8,7 @@
         <div id="header-content" class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <div style="color: white; margin: 170 60; text-align: left;">
+                    <div style="color: white; margin: 225 60; text-align: left;">
                         <h1 class="cg-bigheader">Take <b class="cg-blue">Control</b> of Your Future</h1>
                         <h2>With the trusted support of the <b>Capital Group team</b> behind you </h2>
                     </div>
@@ -28,22 +28,22 @@
             </div>
 
             <div class="row" style="margin: 60 0 0 0">
-                <div class="col-md-4" style="margin: 0 0 50 0">
+                <div class="col-md-4" style="margin: 0 0 70 0">
                     <a href="#screener">
                         <img class="img-responsive intro-icon" src={{ url_for('static', filename='screener_icon.png') }} alt="Funds Screener">
-                        <h3 class="white">Take a quick quiz for sample portfolio.</h3>
+                        <h3 class="white" style="margin: 0;">Take a quick quiz for sample portfolio.</h3>
                     </a>
                 </div>
-                <div class="col-md-4" style="margin: 0 0 50 0">
+                <div class="col-md-4" style="margin: 0 0 70 0">
                     <a href="#optimizer">
                         <img class="img-responsive intro-icon" src={{ url_for('static', filename='optimizer_icon.png') }} alt="Portfolio Optimizer">
-                        <h3 class="white">Balance your portfolio.</h3>
+                        <h3 class="white" style="margin: 0;">Balance your portfolio.</h3>
                     </a>
                 </div>
-                <div class="col-md-4" style="margin: 0 0 50 0">
+                <div class="col-md-4" style="margin: 0 0 70 0">
                     <a href="#locator">
                         <img class="img-responsive intro-icon" src={{ url_for('static', filename='locator_icon.png') }} alt="Advisor Locator">
-                        <h3 class="white">Find a financial advisor near you.</h3>
+                        <h3 class="white" style="margin: 0;">Find a financial advisor near you.</h3>
                     </a>
                 </div>
             </div>
@@ -121,16 +121,16 @@
  <div id="locator" class="container-fluid cg-whitebluegradient-bg">
      <div class="row" style="padding: 50 50 20 50">
          <h1>Find a financial advisor</h1>
-         <h4>Take the first step of your financial journey with your newly gained knowledge</h4>
+         <h4>A guide for your financial journey</h4>
      </div>
     <div class="row" style="padding: 0 50 80 50;">
         <div class="col-md-8">
 
             <div id="findadvisor">
-                Find financial advisor in:
+                <b>Find financial advisor in:</b>
             </div>
 
-            <div id="controls" style="padding: 15 0 5 0;">
+            <div id="controls" style="padding: 15 0">
                 <select id="country">
                     <option value="all">All</option>
                     <option value="au">Australia</option>
@@ -150,15 +150,16 @@
                 <input id="autocomplete" placeholder="Enter a city" type="text" />
             </div>
 
-            <div id="companyChooser">
-                <input type="radio" name="company" id="edwardjones" value="edwardjones" checked="checked" /> Edward Jones
-                <input type="radio" name="company" id="wellsfargo" value="wellsfargo" /> Wells Fargo Advisors
-                <input type="radio" name="company" id="" value="" />
-                <input type="radio" name="company" id="" value="" />
+            <div id="companyChooser" style="padding-bottom: 10">
+                <b>Financial Advisor:</b>
+                <input style="margin-left: 15" type="radio" onchange="search()" name="advisorCompany" id="edwardjones" checked="checked" /> Edward Jones
+                <input style="margin-left: 15" type="radio" onchange="search()" name="advisorCompany" id="wellsfargo" /> Wells Fargo Advisors
+                <input style="margin-left: 15" type="radio" onchange="search()" name="advisorCompany" id="merrilllynch" /> Merrill Lynch
+                <input style="margin-left: 15" type="radio" onchange="search()" name="advisorCompany" id="fidelity" /> Fidelity
             </div>
 
-            <div id="redoSearch" style="padding: 5px; display: none;">
-                <button type="redoSearch" class="btn btn-default">Refresh search</button>
+            <div id="redoSearch" style="padding-bottom: 10; display: none;">
+                <button type="redoSearch" class="btn btn-default" onclick="search()">Refresh search</button>
             </div>
 
 
@@ -172,7 +173,7 @@
                 <table id="resultsTable" align="center">
                     <tbody id="results">
 
-                    <tr><td>Enter location to begin search</td></tr>
+                    <tr><td style="padding: 50 0; color:grey"><h5>- Enter location to begin search -</h5></td></tr>
                     </tbody>
                 </table>
             </div>
@@ -294,8 +295,7 @@
             document.getElementById('country').addEventListener(
                 'change', setAutocompleteCountry);
 
-            document.getElementById('redoSearch').addEventListener(
-                'click', search);
+
           }
 
           // When the user selects a city, get the place details for the city and
@@ -318,35 +318,52 @@
 
           // Search for locations in the selected city, within the viewport of the map.
           function search() {
-            var search = {
-              bounds: map.getBounds(),
-              query: 'edward jones'
-            };
-
-            places.textSearch(search, function(results, status) {
-              if (status === google.maps.places.PlacesServiceStatus.OK) {
-                clearResults();
-                clearMarkers();
-                // Create a marker for each location found, and
-                // assign a letter of the alphabetic to each marker icon.
-                for (var i = 0; i < results.length; i++) {
-                  var markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
-                  var markerIcon = MARKER_PATH + markerLetter + '.png';
-                  // Use marker animation to drop the icons incrementally on the map.
-                  markers[i] = new google.maps.Marker({
-                    position: results[i].geometry.location,
-                    animation: google.maps.Animation.DROP,
-                    icon: markerIcon
-                  });
-                  // If the user clicks a location marker, show the details of that location
-                  // in an info window.
-                  markers[i].placeResult = results[i];
-                  google.maps.event.addListener(markers[i], 'click', showInfoWindow);
-                  setTimeout(dropMarker(i), i * 100);
-                  addResult(results[i], i);
+            if(autocomplete.getPlace())
+            {
+                var company = 'edward jones'
+                if (document.getElementById('edwardjones').checked == true) {
+                    company = 'edward jones';
+                  }
+                else if (document.getElementById('wellsfargo').checked == true) {
+                    company = 'wells fargo advisors';
                 }
-              }
-            });
+                else if (document.getElementById('merrilllynch').checked == true) {
+                    company = 'merrill lynch';
+                }
+                else if (document.getElementById('fidelity').checked == true) {
+                    company = 'fidelity investments';
+                }
+
+                var search = {
+                  bounds : map.getBounds(),
+                  query : company
+                };
+
+                places.textSearch(search, function(results, status) {
+                  if (status === google.maps.places.PlacesServiceStatus.OK) {
+                    clearResults();
+                    clearMarkers();
+                    // Create a marker for each location found, and
+                    // assign a letter of the alphabetic to each marker icon.
+                    for (var i = 0; i < results.length; i++) {
+                      var markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
+                      var markerIcon = MARKER_PATH + markerLetter + '.png';
+                      // Use marker animation to drop the icons incrementally on the map.
+                      markers[i] = new google.maps.Marker({
+                        position: results[i].geometry.location,
+                        animation: google.maps.Animation.DROP,
+                        icon: markerIcon
+                      });
+                      // If the user clicks a location marker, show the details of that location
+                      // in an info window.
+                      markers[i].placeResult = results[i];
+                      google.maps.event.addListener(markers[i], 'click', showInfoWindow);
+                      setTimeout(dropMarker(i), i * 100);
+                      addResult(results[i], i);
+                    }
+                  }
+                });
+            }
           }
 
           function clearMarkers() {
