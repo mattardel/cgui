@@ -1,87 +1,64 @@
-var portfolio = [];
-var portfolio_tickers = [];
+/* ---- Portfolio Logic ---- */
+
+var user_funds = {};
+var AF_funds = {};
+var nonAF_fund = {};
+var allTickers = [];
 
 
-function getWholePortfolio (funds_closings, funds_dict, ticker1, ticker2) {
-    // all fund functions can be used individually or all together here.
-    // after calling,var portfolio is filled!
-    getFirstCorrFund(funds_closings, funds_dict, ticker1);
-    getSecondCorrFund(funds_closings, funds_dict, ticker2);
-    getFinalFund(funds_closings, funds_dict);
+function getFirstCorrFund (funds_closings, funds_dict, ticker1 = false) {
+    var firstTicker = ticker1;
+    if (!firstTicker) {
+        firstTicker = document.getElementById('firstPick').value;
+    }
+    user_funds[firstTicker] = funds_dict[firstTicker];
+    allTickers.push(firstTicker);
+
+    var reducedFunds = funds_dict;
+    delete reducedFunds[firstTicker];
+    render2ndPickOptions(reducedFunds);
 }
 
-function getFirstCorrFund (funds_closings, funds_dict, ticker1 = "null") {
-    var firstTicker = ticker1;
-    if (firstTicker === "null") {
-        firstTicker = document.getElementById('ticker1').value;
+
+function getSecondCorrFund (funds_closings, funds_dict, ticker2 = false) {
+    var secondTicker = ticker2;
+    if (!secondTicker) {
+        secondTicker = document.getElementById('secondPick').value;
     }
+    user_funds[secondTicker] = funds_dict[secondTicker];
+    allTickers.push(secondTicker);
+}
+
+
+function compareFunds (funds_closings, funds_dict, selection) {
     var minCC = 1.0;  // 1 is the highest that a correlation coefficient can be
     var minCCTicker;
-    var firstTickerClosings = funds_closings[firstTicker];
-
+    var selectionClosings = funds_closings[selection];
 
     count = 1;  // only funds # 1-39 are American Funds, # 40-49 are for the 5th portfolio spot
     for (ticker in funds_closings) {
         if (count++ === 40) {break;}
 
-        currentTickerCC = calculateCorrelation(firstTickerClosings, funds_closings[ticker]);
+        currentTickerCC = calculateCorrelation(selectionClosings, funds_closings[ticker]);
         if (currentTickerCC < minCC) {
             minCC = currentTickerCC;
             minCCTicker = ticker;
         }
     }
-    portfolio.push(funds_dict[firstTicker], funds_dict[minCCTicker]);
-    portfolio_tickers.push(firstTicker, minCCTicker);
+
+    AF_funds[minCCTicker] = funds_dict[minCCTicker];
+    allTickers.push(minCCTicker);
+}
 
 
-    // UGLY UGLY TEMP STUFF VERY UGGO
-    // TEMPORARY - displays the current portfolio after 1 user selection
-    document.getElementById('p1').innerHTML = funds_dict[firstTicker];
-    document.getElementById('p2').innerHTML = funds_dict[minCCTicker];
-
-    // TEMPORARY - disgustingly create dropdown for choice2
-    var reducedFunds = funds_dict;
-    delete reducedFunds[firstTicker];
-    delete reducedFunds[minCCTicker];
-
+function render2ndPickOptions(reducedFunds) {
     var choice2Str = "";
     for (ticker in reducedFunds) {
         choice2Str = choice2Str.concat("<option value=" + ticker + ">" + reducedFunds[ticker] + "</option>");
     }
-    document.getElementById("ticker2").innerHTML = choice2Str;
-    // UGGO PART IS OVER
+    document.getElementById("secondPick").innerHTML = choice2Str;
 }
 
-function getSecondCorrFund (funds_closings, funds_dict, ticker2 = "null") {
-    var secondTicker = ticker2;
-    if (secondTicker === "null") {
-        secondTicker = document.getElementById('ticker2').value;
-    }
-    var minCC = 1.0;  // 1 is the highest that a correlation coefficient can be
-    var minCCTicker;
-    var secondTickerClosings = funds_closings[secondTicker];
-
-
-    count = 1;  // only funds # 1-39 are American Funds, # 40-49 are for the 5th portfolio spot
-    for (ticker in funds_closings) {
-        if (count++ === 40) {break;}
-
-        currentTickerCC = calculateCorrelation(secondTickerClosings, funds_closings[ticker]);
-        if (currentTickerCC < minCC) {
-            minCC = currentTickerCC;
-            minCCTicker = ticker;
-        }
-    }
-    portfolio.push(funds_dict[secondTicker], funds_dict[minCCTicker]);
-    portfolio_tickers.push(secondTicker, minCCTicker);
-
-
-    // TEMPORARY - displays the current portfolio after 2 user selections
-    document.getElementById('p3').innerHTML = funds_dict[secondTicker];
-    document.getElementById('p4').innerHTML = funds_dict[minCCTicker];
-    getFinalFund(funds_closings, funds_dict);
-    // not as ugly
-}
 
 function getFinalFund (funds_closings, funds_dict) {
     // function to find an appropriate non-American Fund fund
@@ -96,8 +73,8 @@ function getFinalFund (funds_closings, funds_dict) {
         if (count++ < 39) {continue;}
 
         var corrCoefs = 0.0;
-        for (var i = 0; i < portfolio_tickers.length; i++) {
-            corrCoefs = corrCoefs + calculateCorrelation(funds_closings[ticker], funds_closings[portfolio_tickers[i]]);
+        for (var i = 0; i < 4; i++) {
+            corrCoefs = corrCoefs + calculateCorrelation(funds_closings[ticker], funds_closings[allTickers[i]]);
         }
         var currAvgCC = corrCoefs/4;
         if (currAvgCC < minAvgCC) {
@@ -105,13 +82,36 @@ function getFinalFund (funds_closings, funds_dict) {
             minAvgCCTicker = ticker;
         }
     }
-    portfolio.push(funds_dict[minAvgCCTicker]);
-    portfolio_tickers.push(minAvgCCTicker);
-
-    // TEMPORARY - displays the current portfolio after determining 5th spot
-    document.getElementById('p5').innerHTML = funds_dict[minAvgCCTicker];
-    // not as ugly
+    nonAF_fund[minAvgCCTicker] = funds_dict[minAvgCCTicker];
+    allTickers.push(minAvgCCTicker);
 }
+
+
+// Calculates other 3 funds and updates right hand side circles 1-3
+function calculateRemaining(funds_closings, funds_dict) {
+	document.getElementById("directions").innerHTML = "Calculating the best mutual funds to balance your portfolio risk...";
+
+	// Call math logic
+	reducedFunds = funds_dict;
+	for (var fund in user_funds) {
+	    delete reducedFunds[fund];
+	}
+
+	for (var fund in user_funds) {
+        compareFunds(funds_closings, reducedFunds, fund);
+	}
+
+    finalReducedFunds = reducedFunds;
+    for (var fund in AF_funds) {
+        getFinalFund(funds_closings, finalReducedFunds);
+    }
+
+    // Show in animation
+	showAmericanFunds();
+	showNonAmericanFunds();
+	resetScale();
+}
+
 
 // x, y = array of closing prices for fund1, fund2
 function calculateCorrelation (x, y) {
@@ -160,6 +160,7 @@ function calculateCorrelation (x, y) {
     return answer;
 }
 
+
 /* ---- Portfolio Animation ---- */
 
 // Close the dropdown if the user clicks outside of it
@@ -193,16 +194,12 @@ function updateYourPick2() {
 	document.getElementById("left-2").style.color = "white";
 }
 
-// Calculates other 3 funds and updates right hand side circles 1-3
-function calculateRemaining() {
-	document.getElementById("directions").innerHTML = "Calculating the best mutual funds to balance your portfolio risk...";
-	/* Call math logic*/
-}
-
 function showAmericanFunds() {
-	document.getElementById("directions").innerHTML = "We found 2 American Funds to balance out your risks!";
-	document.getElementById("right-1").innerHTML = "TEMP 1";
-	document.getElementById("right-2").innerHTML = "TEMP 2";
+	count = 1;
+	for (var fund in AF_funds) {
+	    document.getElementById("right-" + count.toString()).innerHTML = fund;
+	    count++;
+	}
 	document.getElementById("right-1").style.background = "brown";
 	document.getElementById("right-2").style.background = "brown";
 	document.getElementById("right-1").style.color = "white";
@@ -210,8 +207,9 @@ function showAmericanFunds() {
 }
 
 function showNonAmericanFunds() {
-	document.getElementById("directions").innerHTML = "We also found 1 Non-American Fund to balance out your risks!";
-	document.getElementById("right-3").innerHTML = "TEMP 3";
+    for (var fund in nonAF_fund) {
+        document.getElementById("right-3").innerHTML = fund;
+    }
 	document.getElementById("right-3").style.background = "gray";
 	document.getElementById("right-3").style.color = "white";
 }
@@ -241,7 +239,7 @@ function colorPortfolio() {
 }
 
 function resetScale() {
-	document.getElementById("directions").innerHTML = "If one of your funds fail, the rest of your funds will not be affected and vice versa. Your portfolio is BALANCED!";
+	document.getElementById("directions").innerHTML = "We selected 2 Funds from American Funds and 1 non-American Fund.  If one of your funds fail, the rest of your funds will not be affected and vice versa. Your portfolio is BALANCED!";
 	document.getElementById("scale-line").classList.remove("scale-animation");
 }
 
