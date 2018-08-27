@@ -11,25 +11,92 @@
                      background-position: center; background-repeat: no-repeat; background-size:cover;">
             <div id="index-header" class="container">
                 <div style="margin: 450 -50; text-align: left; color: white;">
-                    <h1 style="font-size: 4em; text-shadow: 1px 1px 50px black ;">Placeholder Header Title</h1>
+                    <h1 style="font-size: 4em; text-shadow: 1px 1px 50px black ;">Mutual Fund Screener</h1>
                 </div>
             </div>
         </div>
     </div>
 
+    <br />
+
+    <h1>Find Your Funds</h1>
+
+    <p><i>Fill out the following questionnaire to have a personalized fund recommended to you!</i></p>
+
+    <br />
+
     <!--begin form-->
     <div class="container">
         <form action="{{ url_for('screener') }}" method=post class="form form-horizontal" role="form">
             {{ form.csrf_token }}
-            {{ form.name.label }} {{ form.name }} <br />
-            {{ form.screen.label }} {{ form.screen }} <br />
-            {{ form.ageRet.label }} {{ form.ageRet }} <br />
-            {{ form.currAge.label }}{{ form.currAge }} <br />
-            {{ form.nestegg.label }}{{ form.nestegg }} <br />
-            {{ form.monthly.label }}{{ form.monthly }} <br />
-            {{ form.esp.label }}{{ form.esp }}
+
+            <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
+                    <label class="sr-only" for="name">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" aria-describedby="name"
+                           style="width: 100%;"
+                           placeholder="Name:">
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+            <br/><br/>
+            <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">{{ form.screen.label }} {{ form.screen(class_='form-control') }}</div>
+                <div class="col-sm-3"></div>
+            </div>
+            <br/><br/>
+            <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
+                    <label class="sr-only" for="currAge">Current Age</label>
+                    <input type="text" class="form-control" id="currAge" name="currAge" aria-describedby="currAge"
+                           style="width: 100%;"
+                           placeholder="Current Age:">
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
+                    <label class="sr-only" for="ageRet">Retirement Age</label>
+                    <input type="text" class="form-control" id="ageRet" name="name" aria-describedby="ageRet"
+                           style="width: 100%;"
+                           placeholder="Retirement Age:">
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+            <br/><br/>
+            <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
+                    <label class="sr-only" for="nestegg">Nestegg</label>
+                    <input type="text" class="form-control" id="nestegg" name="nestegg" aria-describedby="nestegg"
+                           style="width: 100%;"
+                           placeholder="How much do you want saved for retirement?">
+                </div>
+
+                <div class="col-sm-3"></div>
+            </div>
             <br />
-            <input type="submit" value="Go">
+            <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
+                    <label class="sr-only" for="monthly">Monthly</label>
+                    <input type="text" class="form-control" id="monthly" name="monthly" aria-describedby="monthly"
+                           style="width: 100%;"
+                           placeholder="How much can you invest per month?">
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+            <br/><br />
+
+            {{ form.esp.label }}{{ form.esp }}
+            <br/><br />
+            <input type="submit" value="Go" class="btn btn-primary">
+            <br/><br/>
         </form>
     </div>
 
