@@ -1,7 +1,20 @@
 {% extends "layout.html" %}
-
-
 {% block body %}
+
+{% if submit %}
+    <!-- jump to screener results anchor -->
+    <script type="text/javascript">
+        window.location.href = "#screener-results";
+    </script>
+{% endif %}
+
+<script type="text/javascript">
+function jump(h){
+    var top = document.getElementById(h).offsetTop;
+    window.scrollTo(0, top);
+
+}​
+</script>
 
 <!--Header Section where Visual Element would go-->
     <div id="investor-header" class="container-fluid">
@@ -86,7 +99,7 @@
                 </div>
             </div>
             <div class="col-md-6" style="margin: 50 0;">
-                <img class="img-responsive" style="height: 400px; margin: auto;" src={{ url_for('static', filename='visual_concepts.gif') }} alt="Funds Screener">
+                <img class="img-responsive" style="height: 400px; margin: auto;" src={{ url_for('static', filename='visual_concepts.gif') }} alt="Visual Concepts">
             </div>
         </div>
     </div>
@@ -94,17 +107,132 @@
 
 
 <!--Question Flow -->
- <div id="screener" class="container-fluid">
- <div class="container">
-    <div class="row" style="margin: 200 0;">
-        <div class="col-md-12">
-            <h1 class="cg-blue">Answer some questions about yourself</h1>
-        </div>
+<div id="screener" class="container-fluid">
+    <div class="row" style="margin: 100 0 30 0">
+    <h1 class="bold cg-blue">Find Your Funds</h1>
+    <h4><i>Answer some questions about yourself to get personalized fund recommendations!</i></h4>
+    </div>
 
+    <!--begin form-->
+    <div class="container" style="margin-bottom: 100">
+        <form action="{{ url_for('show_index') }}" method=post class="form form-horizontal" role="form">
+            {{ form.csrf_token }}
 
+            <div class="row" style="margin-bottom: 20">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
+                    <label class="sr-only" for="name">Name</label>
+                    <h3>My name is</h3>
+                    <input type="text" class="form-control" id="name" name="name" aria-describedby="name"
+                           style="display:inline"
+                           placeholder="Name">
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+            <div class="row" style="margin-bottom: 20">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6"><h3>And I want to save for</h3>
+                    {{ form.screen(class_='form-control') }}</div>
+                <div class="col-sm-3"></div>
+            </div>
+            <div class="row" style="margin-bottom: 20">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
+                    <label class="sr-only" for="currAge">Current Age</label>
+                    <h3>I am currently</h3>
+                    <input type="text" class="form-control" id="currAge" name="currAge" aria-describedby="currAge"
+                           style="width: 100%;"
+                           placeholder="Current Age">
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+            <div class="row" style="margin-bottom: 20">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
+                    <label class="sr-only" for="ageRet">Retirement Age</label>
+                    <h3>and plan to retire when I am</h3>
+                    <input type="text" class="form-control" id="ageRet" name="name" aria-describedby="ageRet"
+                           style="width: 100%;"
+                           placeholder="Retirement Age">
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+            <div class="row" style="margin-bottom: 20">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
+                    <label class="sr-only" for="nestegg">Nestegg</label>
+                    <h3>I want to have saved</h3>
+                    <input type="text" class="form-control" id="nestegg" name="nestegg" aria-describedby="nestegg"
+                           style="width: 100%;"
+                           placeholder="How much do you want saved for retirement?">
+                </div>
+
+                <div class="col-sm-3"></div>
+            </div>
+            <div class="row" style="margin-bottom: 20">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
+                    <label class="sr-only" for="monthly">Monthly</label>
+                    <h3>and plan to save monthly</h3>
+                    <input type="text" class="form-control" id="monthly" name="monthly" aria-describedby="monthly"
+                           style="width: 100%;"
+                           placeholder="How much can you invest per month?">
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+            <div class="row">
+            {{ form.esp.label }} {{ form.esp }}
+            </div>
+
+            <input type="submit" value="Find My Funds" class="btn btn-info" style="margin-top: 20; font-size: 1.6em;">
+        </form>
     </div>
  </div>
- </div>
+
+<!-- recommendations results -->
+{% if submit %}
+<div class="container-fluid cg-whiteglow-bg" id="screener-results">
+    <div class="row">
+        <br />
+        <br />
+        <br />
+        {% if form_data.name %}
+            <h1>
+                Hello, {{form_data.name}}
+            </h1>
+        {% endif %}
+
+        <h3>You want to save for</h3>
+        <h1 class="bold">
+            {% if 'retirement' == form_data.screen %}
+                {{ "Retirement" }}
+            {% elif 'wealth' == form_data.screen %}
+                {{ "Building Wealth" }}
+            {% elif 'goal' == form_data.screen %}
+                {{ "A Goal" }}
+            {% endif %}
+        </h1>
+    </div>
+
+    <div class="row"><h3>We recommend these funds as a starting point...</h3></div>
+    <div class="row" style="padding-top: 50">
+        <div class="col-md-2"></div>
+        <div class="col-md-4" style="padding: 30 0">
+            <div class="empty-circle">{{ recs[0]['symbol'] }}</div>
+            <h4 class="bold">{{ recs[0]['name'] }}</h4>
+        </div>
+        <div class="col-md-4" style="padding: 30 0">
+            <div class="empty-circle">{{ recs[1]['symbol'] }}</div>
+            <h4 class="bold">{{ recs[1]['name'] }}</h4>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+    <div class="row" style="margin: 20 0">
+        <h3>Put your recommendations into the optimizer to balance your portfolio</h3>
+        <h2>🢓</h2>
+    </div>
+</div>
+{% endif %}
 
 <!--Portfolio Optimizer -->
 <div id="optimizer" class="container-fluid cg-squares-bg">

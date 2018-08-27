@@ -105,6 +105,9 @@ input::placeholder {
 .cg-whitebluegradient-bg {
   background: linear-gradient(to bottom, white, #ccebf8);
 }
+.cg-whiteglow-bg {
+  background: linear-gradient(to right, #ccebf8, white, #ccebf8);
+}
 .cg-squares-bg {
   background:url('/static/vector-squares.png') bottom right no-repeat;
   background-size: 60%;
@@ -131,6 +134,21 @@ input::placeholder {
   width: 30%;
   margin: auto;
   padding: 0 0 20 0;
+}
+.empty-circle {
+  border: 3px dashed #2E77BB;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: bold;
+  color: #2E77BB;
+  line-height: 90px;
+  text-align: center;
+  margin: auto
+}
+.bold {
+  font-weight: bold;
 }
 
 /* IDs */
