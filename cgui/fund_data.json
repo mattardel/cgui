@@ -100,7 +100,7 @@
     },
     {
       "type": "Growth",
-      "name": "American Funds Developing World Growth and Income Fund SM",
+      "name": "American Funds Developing World Growth and Income Fund",
       "symbol": "DWGHX",
       "ytdReturns": -11.57,
       "1yr": 0.35,
@@ -156,7 +156,7 @@
     },
     {
       "type": "Growth",
-      "name": "International Growth and Income Fund SM",
+      "name": "International Growth and Income Fund",
       "symbol": "IGFFX",
       "ytdReturns": -5.35,
       "1yr": 6.49,
@@ -184,7 +184,7 @@
     },
     {
       "type": "Growth",
-      "name": "Washington Mutual Investors Fund SM",
+      "name": "Washington Mutual Investors Fund",
       "symbol": "WMFFX",
       "ytdReturns": 5.21,
       "1yr": 15.14,
@@ -240,7 +240,7 @@
     },
     {
       "type": "Growth",
-      "name": "American Funds Global Balanced Fund SM",
+      "name": "American Funds Global Balanced Fund",
       "symbol": "GBLFX",
       "ytdReturns": -1.13,
       "1yr": 4.9,
@@ -310,7 +310,7 @@
     },
     {
       "type": "Bond",
-      "name": "American Funds Strategic Bond Fund SM",
+      "name": "American Funds Strategic Bond Fund",
       "symbol": "ANBFX",
       "ytdReturns": -0.28,
       "1yr": -1.03,
@@ -492,7 +492,7 @@
     },
     {
       "type": "Bond",
-      "name": "American Funds U.S. Government Money Market Fund SM",
+      "name": "American Funds U.S. Government Money Market Fund",
       "symbol": "AFGXX",
       "ytdReturns": 0.78,
       "1yr": 0.99,
@@ -506,7 +506,7 @@
     },
     {
       "type": "PS",
-      "name": "American Funds Global Growth Portfolio SM",
+      "name": "American Funds Global Growth Portfolio",
       "symbol": "PGWFX",
       "ytdReturns": 2.74,
       "1yr": 13.05,
@@ -520,7 +520,7 @@
     },
     {
       "type": "PS",
-      "name": "American Funds Growth Portfolio SM",
+      "name": "American Funds Growth Portfolio",
       "symbol": "GWPEX",
       "ytdReturns": 5.52,
       "1yr": 15.92,
@@ -534,7 +534,7 @@
     },
     {
       "type": "PS",
-      "name": "American Funds Growth and Income Portfolio SM",
+      "name": "American Funds Growth and Income Portfolio",
       "symbol": "GAIEX",
       "ytdReturns": 2.57,
       "1yr": 10.54,
@@ -548,7 +548,7 @@
     },
     {
       "type": "PS",
-      "name": "American Funds Moderate Growth and Income Portfolio SM",
+      "name": "American Funds Moderate Growth and Income Portfolio",
       "symbol": "BLPEX",
       "ytdReturns": 1.38,
       "1yr": 7.96,
@@ -562,7 +562,7 @@
     },
     {
       "type": "PS",
-      "name": "American Funds Conservative Growth and Income Portfolio SM",
+      "name": "American Funds Conservative Growth and Income Portfolio",
       "symbol": "INPEX",
       "ytdReturns": 0.97,
       "1yr": 5.39,
@@ -576,7 +576,7 @@
     },
     {
       "type": "PS",
-      "name": "American Funds Tax-Advantaged Growth and Income Portfolio SM",
+      "name": "American Funds Tax-Advantaged Growth and Income Portfolio",
       "symbol": "TXIFX",
       "ytdReturns": 1.9,
       "1yr": 7.67,
@@ -590,7 +590,7 @@
     },
     {
       "type": "PS",
-      "name": "American Funds Preservation Portfolio SM",
+      "name": "American Funds Preservation Portfolio",
       "symbol": "PPEFX",
       "ytdReturns": -0.01,
       "1yr": -0.64,
@@ -604,7 +604,7 @@
     },
     {
       "type": "PS",
-      "name": "American Funds Tax-Exempt Preservation Portfolio SM",
+      "name": "American Funds Tax-Exempt Preservation Portfolio",
       "symbol": "TXEFX",
       "ytdReturns": 0.46,
       "1yr": 0.47,
@@ -618,7 +618,7 @@
     },
     {
       "type": "RIPS",
-      "name": "American Funds Retirement Income Portfolio - Enhanced SM",
+      "name": "American Funds Retirement Income Portfolio - Enhanced",
       "symbol": "FGFWX",
       "ytdReturns": 0.56,
       "1yr": 6.22,
@@ -632,7 +632,7 @@
     },
     {
       "type": "RIPS",
-      "name": "American Funds Retirement Income Portfolio - Moderate SM",
+      "name": "American Funds Retirement Income Portfolio - Moderate",
       "symbol": "FHFWX",
       "ytdReturns": 0.31,
       "1yr": 4.72,
@@ -646,7 +646,7 @@
     },
     {
       "type": "RIPS",
-      "name": "American Funds Retirement Income Portfolio - Conservative SM",
+      "name": "American Funds Retirement Income Portfolio - Conservative",
       "symbol": "FDFWX",
       "ytdReturns": 0.01,
       "1yr": 3.06,
