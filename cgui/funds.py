@@ -116,7 +116,7 @@ class Funds:
             fund ticker
         """
         for ticker in self.funds_dict:
-            file_data = open(os.getcwd() + "/cgui/funds/" + ticker + ".txt", "r")
+            file_data = open(os.getcwd() + "/funds/" + ticker + ".txt", "r")
             ticker_json = json.loads(file_data.read())
             self.closings_dict[ticker] = list(self.get_closings("4. close", ticker_json))
 
