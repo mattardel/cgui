@@ -1,9 +1,9 @@
 from flask import Flask, render_template
-from funds.funds import Funds
+# from funds.funds import Funds
 
 app = Flask(__name__)
 app.config.from_object(__name__)
-funds = Funds()
+# funds = Funds()
 
 @app.route('/')
 def show_index():
@@ -29,10 +29,10 @@ def show_scale():
     #route toscale page
     return render_template('scale.html')
 
-@app.route('/portfolio')
-def show_portfolio():
-    # route to investor page
-    return render_template('portfolio.html', funds_dict=funds.funds_dict, funds_closings=funds.closings_dict)
+# @app.route('/portfolio')
+# def show_portfolio():
+#     # route to investor page
+#     return render_template('portfolio.html', funds_dict=funds.funds_dict, funds_closings=funds.closings_dict)
 
 if __name__ == '__main__':
     app.run(debug=True)

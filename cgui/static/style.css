@@ -138,13 +138,9 @@ html,body {
 }
 /*---- Portfolio optimizer CSS ----*/
 
-.red-text {
-  color: brown;
-}
-
-.left-37 {
+.animation-center {
   position: absolute;
-  left: 37%;
+  left: 29%;
   transform: translate(-50%, -50%);
 }
 
@@ -156,8 +152,12 @@ html,body {
   top: 80%;
 }
 
-#checkmark {
-  top: 35%;
+#animation-board-1 {
+  display: block;
+}
+
+#animation-board-2 {
+  display: none;
 }
 
 /* ------ FUND CIRCLES ------ */
@@ -214,12 +214,14 @@ html,body {
 
 .top-row {
   bottom: 60%;
+  left: 35%;
   position: absolute;
 }
 
 .bottom-row {
   position: absolute;
-  bottom: 40%;
+  top: 40px;
+  left: 15%;
 }
 
 #portfolio-1 {
@@ -235,16 +237,16 @@ html,body {
 }
 
 #portfolio-4 {
-  left: 60px;
+  left: 300px;
 }
 
 #portfolio-5 {
-  left: 180px;
+  left: 425px;
 }
 
 /* ------ SCALE ------ */
 
-#scale-container {
+.funds-container {
   position: relative;
   padding: 100px;
 
@@ -294,3 +296,4 @@ html,body {
     -o-animation-play-state:paused;
     animation-play-state:paused;
 }
+

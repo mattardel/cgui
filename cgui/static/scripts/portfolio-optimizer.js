@@ -181,7 +181,7 @@ window.onclick = function(event) {
 function updateYourPick1() {
     var fundTicker1 = document.getElementById("firstPick").value;
     document.getElementById("left-1").innerHTML = fundTicker1;
-	document.getElementById("left-1").style.background = "brown";
+	document.getElementById("left-1").style.background = "#009bde";
 	document.getElementById("left-1").style.color = "white";
 }
 
@@ -189,10 +189,18 @@ function updateYourPick1() {
 function updateYourPick2() {
     var fundTicker2= document.getElementById("secondPick").value;
     document.getElementById("left-2").innerHTML = fundTicker2;
-	document.getElementById("left-2").style.background = "brown";
+	document.getElementById("left-2").style.background = "#009bde";
 	document.getElementById("left-2").style.color = "white";
 }
 
+function resetPicks() {
+    var fundTicker1= document.getElementById("firstPick").value;
+    var fundTicker2= document.getElementById("secondPick").value;
+    document.getElementById("left-1").innerHTML = "Your Pick";
+    document.getElementById("left-2").innerHTML = "Your Pick";
+	document.getElementById("left-2").style.background = none;
+	document.getElementById("left-2").style.color = "white";
+}
 // Calculates other 3 funds and updates right hand side circles 1-3
 function calculateRemaining() {
 	document.getElementById("directions").innerHTML = "Calculating the best mutual funds to balance your portfolio risk...";
@@ -203,8 +211,8 @@ function showAmericanFunds() {
 	document.getElementById("directions").innerHTML = "We found 2 American Funds to balance out your risks!";
 	document.getElementById("right-1").innerHTML = "TEMP 1";
 	document.getElementById("right-2").innerHTML = "TEMP 2";
-	document.getElementById("right-1").style.background = "brown";
-	document.getElementById("right-2").style.background = "brown";
+	document.getElementById("right-1").style.background = "#009bde";
+	document.getElementById("right-2").style.background = "#009bde";
 	document.getElementById("right-1").style.color = "white";
 	document.getElementById("right-2").style.color = "white";
 }
@@ -212,12 +220,16 @@ function showAmericanFunds() {
 function showNonAmericanFunds() {
 	document.getElementById("directions").innerHTML = "We also found 1 Non-American Fund to balance out your risks!";
 	document.getElementById("right-3").innerHTML = "TEMP 3";
-	document.getElementById("right-3").style.background = "gray";
+	document.getElementById("right-3").style.background = "#777777";
 	document.getElementById("right-3").style.color = "white";
 }
 
 function showPortfolio() {
-	location.replace("full-portfolio.html");
+	var animationBoard1 = document.getElementById('animation-board-1');
+	var animationBoard2 = document.getElementById('animation-board-2');
+	animationBoard1.style.display = "none";
+    animationBoard2.style.display = "block";
+
 }
 
 function colorPortfolio() {
@@ -227,11 +239,11 @@ function colorPortfolio() {
 	document.getElementById("portfolio-4").innerHTML = "TEMP 4";
 	document.getElementById("portfolio-5").innerHTML = "TEMP 5";
 
-	document.getElementById("portfolio-1").style.background = "gray";
-	document.getElementById("portfolio-2").style.background = "brown";
-	document.getElementById("portfolio-3").style.background = "brown";
-	document.getElementById("portfolio-4").style.background = "brown";
-	document.getElementById("portfolio-5").style.background = "brown";
+	document.getElementById("portfolio-1").style.background = "#777777";
+	document.getElementById("portfolio-2").style.background = "#009bde";
+	document.getElementById("portfolio-3").style.background = "#009bde";
+	document.getElementById("portfolio-4").style.background = "#009bde";
+	document.getElementById("portfolio-5").style.background = "#009bde";
 
 	document.getElementById("portfolio-1").style.color = "white";
 	document.getElementById("portfolio-2").style.color = "white";
@@ -245,10 +257,9 @@ function resetScale() {
 	document.getElementById("scale-line").classList.remove("scale-animation");
 }
 
-function showDone() {
-	location.replace("done.html");
-}
-
 function startOver() {
-	location.replace("seesaw.html");
+	var animationBoard1 = document.getElementById('animation-board-1');
+	var animationBoard2 = document.getElementById('animation-board-2');
+	animationBoard1.style.display = "block";
+    animationBoard2.style.display = "none";
 }

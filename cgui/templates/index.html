@@ -109,62 +109,94 @@
 <!--Portfolio Optimizer -->
 <div id="optimizer" class="container-fluid cg-squares-bg">
     <div class="container">
-        <div class="row" style="margin: 200 0;">
-            <div class="col-md-12">
-                <h2><b>Let's diversify!</b></h2>
-                <div id="directions">
-                    Select a mutual fund to add to your portfolio.
+        <div id="animation-board-1">
+            <div class="row" style="margin: 200 0;">
+                <div class="col-md-12">
+                    <h2><b>Let's diversify!</b></h2>
+                    <div id="directions">
+                        Select a mutual fund to add to your portfolio.
+                    </div>
                 </div>
             </div>
-        </div>
 
-
-        <div class="row" id="scale-container">
-            <div class="scale-animation" id="scale-line">
-              <div class="empty-big-circle circle" id="left-1">Your Pick</div>
-              <div class="empty-big-circle circle" id="left-2">Your Pick</div>
-              <div class="empty-small-circle circle" id="right-1">Our Pick</div>
-              <div class="empty-small-circle circle" id="right-2">Our Pick</div>
-              <div class="empty-small-circle circle" id="right-3">Our Pick</div>
+            <div class="row funds-container">
+                <div class="scale-animation" id="scale-line">
+                  <div class="empty-big-circle circle" id="left-1">Your Pick</div>
+                  <div class="empty-big-circle circle" id="left-2">Your Pick</div>
+                  <div class="empty-small-circle circle" id="right-1">Our Pick</div>
+                  <div class="empty-small-circle circle" id="right-2">Our Pick</div>
+                  <div class="empty-small-circle circle" id="right-3">Our Pick</div>
+                </div>
+                <div id="scale-triangle">
+                </div>
             </div>
-            <div id="scale-triangle">
+
+            <div class="container">
+              <select id="firstPick" onchange="updateYourPick1()">
+                  <option value="0"> Select your first fund...</option>
+                  <option value="AMCAP"> AMCAP Fund</option>
+                  <option value="AMFD"> American Mutual Fund</option>
+              </select>
+              <select id="secondPick" onchange="updateYourPick2()">
+                  <option value="0"> Select your second fund...</option>
+                  <option value="AMCAP"> AMCAP Fund</option>
+                  <option value="AMFD"> American Mutual Fund</option>
+              </select>
+              <button class="btn" onclick="calculateRemaining()">
+                OK
+              </button>
+            </div>
+
+            <div id="temp-buttons">
+                <button class="btn" onclick="showAmericanFunds()">
+                B1
+              </button>
+
+              <button class="btn" onclick="showNonAmericanFunds()">
+                B2
+              </button>
+
+              <button class="btn" onclick="resetScale()">
+                B3
+              </button>
+
+              <button class="btn" onclick="showPortfolio()">
+                B4
+              </button>
             </div>
         </div>
 
-        <div class="container">
-          <select id="firstPick" onchange="updateYourPick1()">
-              <option value="0"> Select your first fund...</option>
-              <option value="AMCAP"> AMCAP Fund</option>
-              <option value="AMFD"> American Mutual Fund</option>
-          </select>
-          <select id="secondPick" onchange="updateYourPick2()">
-              <option value="0"> Select your second fund...</option>
-              <option value="AMCAP"> AMCAP Fund</option>
-              <option value="AMFD"> American Mutual Fund</option>
-          </select>
-          <button class="btn" onclick="calculateRemaining()">
-            OK
-          </button>
+        <div id="animation-board-2">
+            <div class="row" style="margin: 100 0;">
+                    <div class="col-md-12">
+                        <h2><b>Let's diversify!</b></h2>
+                        <div id="directions">
+                            If one of your funds fail, the rest of your funds will not be affected<br>and vice versa. Your portfolio is <span class="cg-blue bold">balanced!</span>
+                        </div>
+                    </div>
+                </div>
+            <div class="row funds-container">
+                <div class="animation-center top-row">
+                  <div class="empty-big-circle circle top-row" id="portfolio-1">1</div>
+                  <div class="empty-big-circle circle top-row" id="portfolio-2">2</div>
+                  <div class="empty-big-circle circle top-row" id="portfolio-3">3</div>
+                </div>
+
+                <div class="annimation-center bottom-row">
+                  <div class="empty-big-circle circle bottom-row" id="portfolio-4">4</div>
+                  <div class="empty-big-circle circle bottom-row" id="portfolio-5">5</div>
+                </div>
+            </div>
+
+              <div class="container">
+                <button class="btn" onclick="colorPortfolio()">
+                  Color
+                </button>
+                <button class="btn" onclick="startOver()">
+                  Start Over
+                </button>
+              </div>
         </div>
-
-        <div id="temp-buttons">
-            <button class="btn" onclick="showAmericanFunds()">
-            B1
-          </button>
-
-          <button class="btn" onclick="showNonAmericanFunds()">
-            B2
-          </button>
-
-          <button class="btn" onclick="resetScale()">
-            B3
-          </button>
-
-{#          <button class="btn" onclick="showPortfolio()">#}
-{#            B4#}
-{#          </button>#}
-        </div>
-
 
     </div>
 </div>
