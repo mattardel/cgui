@@ -1,6 +1,5 @@
-from flask import Flask, request, session, g, redirect, url_for, abort, \
-     render_template, flash
-from cgui.funds import Funds
+from flask import Flask, render_template
+from funds.funds import Funds
 
 app = Flask(__name__)
 app.config.from_object(__name__)
