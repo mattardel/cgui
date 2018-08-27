@@ -32,4 +32,51 @@
             <input type="submit" value="Go">
         </form>
     </div>
+
+
+    <!-- recommendations -->
+        {% if submit %}
+        <div class="row" style="padding: 40 0">
+            {% if form_data.name %}
+                <h1>
+                    Hello, {{form_data.name}}
+                </h1>
+            {% endif %}
+
+            <br />
+            <h3>You want to save for</h3>
+            <h1 class="bold">
+                {% if 'retirement' == form_data.screen %}
+                    {{ "Retirement" }}
+                {% elif 'wealth' == form_data.screen %}
+                    {{ "Building Wealth" }}
+                {% elif 'goal' == form_data.screen %}
+                    {{ "A Goal" }}
+                {% endif %}
+            </h1>
+        </div>
+
+        <div class="row" style="padding: 0 0"><h3>We recommend these funds as a starting point...</h3></div>
+        <div class="row" style="padding: 50 0">
+            <div class="col-md-2"></div>
+            <div class="col-md-4" style="padding: 30 0">
+                <div class="empty-circle">{{ recs[0]['symbol'] }}</div>
+                <h4 class="bold">{{ recs[0]['name'] }}</h4>
+            </div>
+            <div class="col-md-4" style="padding: 30 0">
+                <div class="empty-circle">{{ recs[1]['symbol'] }}</div>
+                <h4 class="bold">{{ recs[1]['name'] }}</h4>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+
+        <!--accessing form answer-->
+        <!--{{ form_data.screen }}-->
+        <!--accessing arrays of american funds-->
+        <!--{{ af[type['growth']][0] }}-->
+
+
+        {% endif %}
+    </div>
+
 {% endblock %}

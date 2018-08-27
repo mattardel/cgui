@@ -17,3 +17,143 @@ body                    {background: white; font-weight: light;}
 .top_left               {position: absolute; top: 15%; left: 7%; padding: 2px; font-size: 2.2em; font-weight: bold;
                         font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
                         height: 5%; width: 25%; text-align: left; line-height: 1.25em;}
+                        
+/* element and overrides */
+body {
+  background: white;
+  font-weight: light;
+  font-feature-settings: normal;
+  font-family: 'Nunito Sans', sans-serif;
+}
+a:link {
+  color: #009bde;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: #99d7f1;
+  background-color: transparent;
+  text-decoration: underline;
+}
+input::placeholder {
+  font-size: large;
+}
+.navbar-inverse .navbar-nav {
+  font-weight: bold;
+}
+.nav>li>a {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* classes */
+.page {
+  text-align: center;
+  margin: auto;
+  background: white;
+}
+.form-control {
+  border: 0;
+  border-radius: 0;
+  border-bottom: black solid 2px;
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+}
+.cg-bigheader{
+  font-size: 4em;
+}
+.cg-blue {
+  color: #009bde;
+}
+.cg-darkgray {
+  color: #555555;
+}
+.cg-mediumgray {
+  color: #777777;
+}
+.cg-mediumgray h4 {
+  color: #777777;
+  font-size: 1.2em;
+  text-transform: uppercase;
+}
+.cg-bluegradient-bg {
+  background: linear-gradient(to right, #009bde, #9bd2c8);
+}
+.cg-whitebluegradient-bg {
+  background: linear-gradient(to bottom, white, #ccebf8);
+}
+.cg-squares-bg {
+  background:url('/static/vector-squares.png') bottom right no-repeat;
+  background-size: 60%;
+}
+.white {
+  color: white;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+.white-underline {
+  text-decoration: underline;
+  text-decoration-color: white;
+}
+.black-underline {
+  text-decoration: underline;
+  text-decoration-color: black;
+}
+.cgblue-underline {
+  text-decoration: underline;
+  text-decoration-color: #009bde;
+}
+.bold {
+  font-weight: bold;
+}
+.intro-icon {
+  width: 20%;
+  margin: auto;
+  padding: 0 0 20 0;
+}
+.empty-circle {
+  border: 3px dashed #2E77BB;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: bold;
+  color: #2E77BB;
+  line-height: 90px;
+  text-align: center;
+  margin: auto
+}
+
+/* IDs */
+#investor-header {
+  height: 600px;
+  overflow: hidden;
+  text-shadow: 1px 1px 50px black;
+  background:url('/static/investor-header.png') right no-repeat;
+  background-size: cover;
+}
+
+
+/* Footer */
+html,body {
+  height:100%;
+}
+
+#wrap {
+  min-height: 125;
+}
+
+#main {
+  overflow:auto;
+  padding-bottom:80px; /* this needs to be bigger than footer height*/
+}
+
+.footer {
+  position: relative;
+  margin-top: -70px; /* negative value of footer height */
+  height: 70px;
+  clear:both;
+  padding-top:10px;
+  padding-bottom:10px;
+  color:#fff;
+}

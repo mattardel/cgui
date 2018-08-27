@@ -3,7 +3,9 @@ from wtforms import StringField, SubmitField, SelectField, IntegerField, validat
 
 class ScreeningForm(Form):
     name = StringField('Name')
-    screen = SelectField('Do you want to save for retirement, build wealth, or save for a specific goal?', choices=[('ret', 'Retirement'), ('build', 'Build Wealth'), ('goal', 'Save for a Goal')])
+    screen = SelectField('Do you want to save for retirement, build wealth, or save for a specific goal?',
+                         choices=[('retirement', 'Retirement'), ('wealth', 'Build Wealth'),
+                                  ('goal', 'Save for a Goal')])
     ageRet = IntegerField('What age do you plan to retire?')
     currAge = IntegerField('What is your current age?')
     nestegg = IntegerField('How much do you want saved for retirement?')
