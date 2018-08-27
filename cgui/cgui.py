@@ -1,6 +1,6 @@
 from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash
-from cgui.forms import ScreeningForm
+from forms.forms import ScreeningForm
 
 app = Flask(__name__)
 app.config.from_object(__name__)
