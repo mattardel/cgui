@@ -131,7 +131,7 @@
                 </div>
             </div>
 
-        <div class="container">
+        <div class="container" id="fund-options">
           <select id="firstPick" onchange="updateYourPick1(); getFirstCorrFund({{funds_closings}}, {{funds_dict}});">
               <option value="0"> Select your first fund...</option>
               {% for key, value in funds_dict.items() %}
@@ -146,23 +146,7 @@
           </button>
         </div>
 
-            <div id="temp-buttons">
-                <button class="btn" onclick="showAmericanFunds()">
-                B1
-              </button>
 
-              <button class="btn" onclick="showNonAmericanFunds()">
-                B2
-              </button>
-
-              <button class="btn" onclick="resetScale()">
-                B3
-              </button>
-
-              <button class="btn" onclick="showPortfolio()">
-                B4
-              </button>
-            </div>
         </div>
 
         <div id="animation-board-2">
@@ -186,15 +170,6 @@
                   <div class="empty-big-circle circle bottom-row" id="portfolio-5">5</div>
                 </div>
             </div>
-
-              <div class="container">
-                <button class="btn" onclick="colorPortfolio()">
-                  Color
-                </button>
-                <button class="btn" onclick="startOver()">
-                  Start Over
-                </button>
-              </div>
         </div>
 
     </div>

@@ -102,14 +102,16 @@ function calculateRemaining(funds_closings, funds_dict) {
 	}
 
     finalReducedFunds = reducedFunds;
-    for (var fund in AF_funds) {
-        getFinalFund(funds_closings, finalReducedFunds);
-    }
+    getFinalFund(funds_closings, finalReducedFunds);
+
 
     // Show in animation
 	showAmericanFunds();
 	showNonAmericanFunds();
 	resetScale();
+
+	// Overwrite fund options to show full portfolio
+	document.getElementById("fund-options").innerHTML = "<button class=\"btn\" onclick=\"showPortfolio()\">View Full Portfolio!</button>";
 }
 
 
@@ -219,21 +221,19 @@ function showPortfolio() {
 	var animationBoard2 = document.getElementById('animation-board-2');
 	animationBoard1.style.display = "none";
     animationBoard2.style.display = "block";
+    console.log(allTickers);
+    count = 1;
+	for (var i = 0; i < allTickers.length; i++) {
+	    console.log(i);
+	    document.getElementById("portfolio-" + count.toString()).innerHTML = allTickers[i];
+	    count++;
+	}
 
-}
-
-function colorPortfolio() {
-	document.getElementById("portfolio-1").innerHTML = "TEMP 1";
-	document.getElementById("portfolio-2").innerHTML = "TEMP 2";
-	document.getElementById("portfolio-3").innerHTML = "TEMP 3";
-	document.getElementById("portfolio-4").innerHTML = "TEMP 4";
-	document.getElementById("portfolio-5").innerHTML = "TEMP 5";
-
-	document.getElementById("portfolio-1").style.background = "#777777";
+	document.getElementById("portfolio-1").style.background = "#009bde";
 	document.getElementById("portfolio-2").style.background = "#009bde";
 	document.getElementById("portfolio-3").style.background = "#009bde";
 	document.getElementById("portfolio-4").style.background = "#009bde";
-	document.getElementById("portfolio-5").style.background = "#009bde";
+	document.getElementById("portfolio-5").style.background = "#777777";
 
 	document.getElementById("portfolio-1").style.color = "white";
 	document.getElementById("portfolio-2").style.color = "white";
@@ -243,18 +243,8 @@ function colorPortfolio() {
 }
 
 function resetScale() {
-    location.reload();
-    var optimizer = document.getElementById("optimizer");
-    optimizer.scrollIntoView();
-}
-
-function resetPicks() {
-    var fundTicker1= document.getElementById("firstPick").value;
-    var fundTicker2= document.getElementById("secondPick").value;
-    document.getElementById("left-1").innerHTML = "Your Pick";
-    document.getElementById("left-2").innerHTML = "Your Pick";
-	document.getElementById("left-2").style.background = none;
-	document.getElementById("left-2").style.color = "white";
+    document.getElementById("directions").innerHTML = "If one of your funds fail, the rest of your funds will not be affected and vice versa. Your portfolio is BALANCED!";
+	document.getElementById("scale-line").classList.remove("scale-animation");
 }
 
 function startOver() {
