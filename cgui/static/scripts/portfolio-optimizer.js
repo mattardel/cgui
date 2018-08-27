@@ -159,3 +159,96 @@ function calculateCorrelation (x, y) {
 
     return answer;
 }
+
+/* ---- Portfolio Animation ---- */
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+// Updates left hand side "Your Pick" circle 1
+function updateYourPick1() {
+    var fundTicker1 = document.getElementById("firstPick").value;
+    document.getElementById("left-1").innerHTML = fundTicker1;
+	document.getElementById("left-1").style.background = "brown";
+	document.getElementById("left-1").style.color = "white";
+}
+
+// Updates left hand side "Your Pick" circle 2
+function updateYourPick2() {
+    var fundTicker2= document.getElementById("secondPick").value;
+    document.getElementById("left-2").innerHTML = fundTicker2;
+	document.getElementById("left-2").style.background = "brown";
+	document.getElementById("left-2").style.color = "white";
+}
+
+// Calculates other 3 funds and updates right hand side circles 1-3
+function calculateRemaining() {
+	document.getElementById("directions").innerHTML = "Calculating the best mutual funds to balance your portfolio risk...";
+	/* Call math logic*/
+}
+
+function showAmericanFunds() {
+	document.getElementById("directions").innerHTML = "We found 2 American Funds to balance out your risks!";
+	document.getElementById("right-1").innerHTML = "TEMP 1";
+	document.getElementById("right-2").innerHTML = "TEMP 2";
+	document.getElementById("right-1").style.background = "brown";
+	document.getElementById("right-2").style.background = "brown";
+	document.getElementById("right-1").style.color = "white";
+	document.getElementById("right-2").style.color = "white";
+}
+
+function showNonAmericanFunds() {
+	document.getElementById("directions").innerHTML = "We also found 1 Non-American Fund to balance out your risks!";
+	document.getElementById("right-3").innerHTML = "TEMP 3";
+	document.getElementById("right-3").style.background = "gray";
+	document.getElementById("right-3").style.color = "white";
+}
+
+function showPortfolio() {
+	location.replace("full-portfolio.html");
+}
+
+function colorPortfolio() {
+	document.getElementById("portfolio-1").innerHTML = "TEMP 1";
+	document.getElementById("portfolio-2").innerHTML = "TEMP 2";
+	document.getElementById("portfolio-3").innerHTML = "TEMP 3";
+	document.getElementById("portfolio-4").innerHTML = "TEMP 4";
+	document.getElementById("portfolio-5").innerHTML = "TEMP 5";
+
+	document.getElementById("portfolio-1").style.background = "gray";
+	document.getElementById("portfolio-2").style.background = "brown";
+	document.getElementById("portfolio-3").style.background = "brown";
+	document.getElementById("portfolio-4").style.background = "brown";
+	document.getElementById("portfolio-5").style.background = "brown";
+
+	document.getElementById("portfolio-1").style.color = "white";
+	document.getElementById("portfolio-2").style.color = "white";
+	document.getElementById("portfolio-3").style.color = "white";
+	document.getElementById("portfolio-4").style.color = "white";
+	document.getElementById("portfolio-5").style.color = "white";
+}
+
+function resetScale() {
+	document.getElementById("directions").innerHTML = "If one of your funds fail, the rest of your funds will not be affected and vice versa. Your portfolio is BALANCED!";
+	document.getElementById("scale-line").classList.remove("scale-animation");
+}
+
+function showDone() {
+	location.replace("done.html");
+}
+
+function startOver() {
+	location.replace("seesaw.html");
+}

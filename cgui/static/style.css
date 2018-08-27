@@ -1,19 +1,295 @@
-body                    {background: white; font-weight: light;}
+/* element and overrides */
+body {
+  background: white;
+  font-weight: light;
+  font-feature-settings: normal;
+  font-family: 'Nunito Sans', sans-serif;
+}
+a:link {
+  color: #009bde;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: #99d7f1;
+  background-color: transparent;
+  text-decoration: underline;
+}
+input::placeholder {
+  font-size: large;
+}
+.navbar-inverse .navbar-nav {
+  font-weight: bold;
+}
+.nav>li>a {
+  padding-left: 20px;
+  padding-right: 20px;
+}
 
-.nav_bar                {border: 1px solid white; font-size: 1.5em; text-align: right; margin: auto;
-                        background-color: white; height: 85px; line-height: 85px; width: 98.5%}
-.nav_bar ul             {list-style-type: none;}
-.nav_bar li             {display: inline-block; vertical-align: bottom;}
-.nav_bar li a           {color: #474c51; text-align: center; text-decoration: none;}
-.nav_bar li a:hover     {background-color: #F2F2F2;}
+/* classes */
+.page {
+  text-align: center;
+  margin: auto;
+  background: white;
+}
+.form-control {
+  border: 0;
+  border-radius: 0;
+  border-bottom: black solid 2px;
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+}
+.cg-bigheader{
+  font-size: 4em;
+}
+.cg-blue {
+  color: #009bde;
+}
+.cg-darkgray {
+  color: #555555;
+}
+.cg-mediumgray {
+  color: #777777;
+}
+.cg-mediumgray h4 {
+  color: #777777;
+  font-size: 1.2em;
+  text-transform: uppercase;
+}
+.cg-bluegradient-bg {
+  background: linear-gradient(to right, #009bde, #9bd2c8);
+}
+.cg-whitebluegradient-bg {
+  background: linear-gradient(to bottom, white, #ccebf8);
+}
+.cg-squares-bg {
+  background:url('/static/vector-squares.png') bottom right no-repeat;
+  background-size: 60%;
+}
+.white {
+  color: white;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+.white-underline {
+  text-decoration: underline;
+  text-decoration-color: white;
+}
+.black-underline {
+  text-decoration: underline;
+  text-decoration-color: black;
+}
+.cgblue-underline {
+  text-decoration: underline;
+  text-decoration-color: #009bde;
+}
+.bold {
+  font-weight: bold;
+}
+.intro-icon {
+  width: 20%;
+  margin: auto;
+  padding: 0 0 20 0;
+}
+.empty-circle {
+  border: 3px dashed #009bde;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  font-weight: bold;
+  color: #2E77BB;
+  line-height: 90px;
+  text-align: center;
+  margin: auto
+}
+
+/* IDs */
+#investor-header {
+  height: 600px;
+  overflow: hidden;
+  text-shadow: 1px 1px 50px black;
+  background:url('/static/investor-header.png') right no-repeat;
+  background-size: cover;
+}
 
 
-.page                   {text-align: center; margin: auto; background: white;}
-.content                {}
+/* Footer */
+html,body {
+  height:100%;
+}
 
-.header_container       {position: relative; text-align: center;}
-.header_photo img       {width: 98.5%; padding-top: 10px; margin: auto;}
-.header_photo           {height: 500px; overflow: hidden;}
-.top_left               {position: absolute; top: 15%; left: 7%; padding: 2px; font-size: 2.2em; font-weight: bold;
-                        font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
-                        height: 5%; width: 25%; text-align: left; line-height: 1.25em;}
+#wrap {
+  min-height: 125;
+}
+
+#main {
+  overflow:auto;
+  padding-bottom:80px; /* this needs to be bigger than footer height*/
+}
+
+.footer {
+  position: relative;
+  margin-top: -70px; /* negative value of footer height */
+  height: 70px;
+  clear:both;
+  padding-top:10px;
+  padding-bottom:10px;
+  color:#fff;
+}
+/*---- Portfolio optimizer CSS ----*/
+
+.red-text {
+  color: brown;
+}
+
+.left-37 {
+  position: absolute;
+  left: 37%;
+  transform: translate(-50%, -50%);
+}
+
+.selection {
+  top: 70%;
+}
+
+#temp-buttons {
+  top: 80%;
+}
+
+#checkmark {
+  top: 35%;
+}
+
+/* ------ FUND CIRCLES ------ */
+
+.circle {
+  position: absolute;
+  bottom: 10px;
+}
+
+.empty-small-circle {
+  border: 3px dashed #009bde;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  font-weight: bold;
+  color: #009bde;
+  line-height: 90px;
+  text-align: center;
+}
+
+.empty-big-circle {
+  border: 3px dashed #009bde;
+  width: 105px;
+  height: 105px;
+  border-radius: 50%;
+  font-weight: bold;
+  color: #009bde;
+  line-height: 90px;
+  text-align: center;
+}
+
+#left-1 {
+  left: 0px;
+}
+
+#left-2 {
+  left: 115px;
+}
+
+#right-1 {
+  left: 430px;
+}
+
+#right-2 {
+  left: 520px;
+}
+
+#right-3 {
+  left: 475px;
+  margin-bottom: 80px;
+}
+
+/* ------ FULL PORTFOLIO ------ */
+
+.top-row {
+  bottom: 60%;
+  position: absolute;
+}
+
+.bottom-row {
+  position: absolute;
+  bottom: 40%;
+}
+
+#portfolio-1 {
+  left: 0px;
+}
+
+#portfolio-2 {
+  left: 120px;
+}
+
+#portfolio-3 {
+  left: 240px;
+}
+
+#portfolio-4 {
+  left: 60px;
+}
+
+#portfolio-5 {
+  left: 180px;
+}
+
+/* ------ SCALE ------ */
+
+#scale-container {
+  position: absolute;
+    margin-top: 160px;
+}
+
+#scale-line {
+  height: 7px;
+  width: 600px;
+  background: #777777;
+  position: absolute;
+  left: 50%;
+  bottom: 170px;
+  transform: translateX(-50%) rotate(0deg);
+  z-index: 1;
+}
+
+.scale-animation {
+  animation: scale-top 5s infinite alternate-reverse;
+}
+
+@keyframes scale-top {
+  from {
+    transform: translateX(-50%) rotate(-12deg);
+  }
+  to {
+    transform: translateX(-50%) rotate(12deg);
+  }
+}
+
+#scale-triangle {
+  display: block;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  height: 0;
+  width: 0;
+  border-top: 0px;
+  border-bottom: 100px solid transparent;
+  border-right: 100px solid #009bde;
+  transform: translateX(-50%) rotate(315deg);
+  z-index: 0;
+}
+
+.paused{
+    -webkit-animation-play-state:paused;
+    -moz-animation-play-state:paused;
+    -o-animation-play-state:paused;
+    animation-play-state:paused;
+}

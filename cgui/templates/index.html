@@ -1,144 +1,765 @@
 {% extends "layout.html" %}
+
+
 {% block body %}
 
-<!-- The scrollable area -->
-<body data-spy="scroll" data-target=".navbar" data-offset="50">
-    <div id="section1">
-
-        <div id="index-header-container" class="container-flex" style="height: 600px; overflow: hidden; background color:black;
-                                 background:url({{ url_for('static', filename='griffith-sunrise.jpg') }});
-                                 background-position: center; background-repeat: no-repeat; background-size:cover;">
-        <div id="index-header" class="container">
-                    <div style="margin: 450 -50; text-align: left; color: white;">
-                        <h1 style="font-size: 4em; text-shadow: 1px 1px 50px black ;">Placeholder Header Title</h1>
+<!--Header Section where Visual Element would go-->
+    <div id="investor-header" class="container-fluid">
+        <div id="header-content" class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div style="color: white; margin: 175 60; text-align: left;">
+                        <h1 class="cg-bigheader">Take <b class="cg-blue">Control</b> of Your Future</h1>
+                        <h2>With the trusted support of the <b>Capital Group team</b> behind you </h2>
                     </div>
+                </div>
             </div>
         </div>
-
     </div>
 
-        <!--
-            <div class=content>
-                <div class=header_container>
-                    <div class=header_photo>
-                        <img src="{{ url_for('static', filename='griffith-sunrise.jpg') }}">
-                        <div class=top_left>
-                            The Capital System<br /><i style="font-size: .45em;">Are you getting your money's worth?</i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-         -->
 
+<!-- Intro -->
+    <div id="intro-container" class="container-fluid cg-bluegradient-bg">
         <div class="container">
-            <div class="page-header">
-                <h2>Who are you?</h2>
-            </div>
             <div class="row">
-                <div class="col-md-4">
-                    <img src="{{ url_for('static', filename='financial.jpg') }}" class="w-50 p-3 img-circle" alt="financial" width="200" height="200"><br>
-                    <button type="button" class="btn btn-primary active" style="margin: -110;">Financial Advisor</button>
+                <div class="col-md-12" style="margin: 100 0 20 0; padding: 0 150">
+                    <h2>Take the <b class="white-underline">first step</b> of your financial journey with a few clicks to get your started with a <b class="white-underline">sample portfolio</b> based on your needs.</h2>
                 </div>
-            <div class="col-md-4">
-                <a href="/investor"><img src="{{ url_for('static', filename='personal.jpg') }}" class="w-50 p-3 img-circle" alt="personal" width="200" height="200"><br>
-                <button type="button" class="btn btn-primary active" style="margin: -110;">Personal Investor</button></a>
             </div>
-            <div class="col-md-4">
-                <img src="{{ url_for('static', filename='institutional.jpg') }}" class="w-50 p-3 img-circle" alt="institutional" width="200" height="200"><br>
-                <button type="button" class="btn btn-primary active" style="margin: -110;">Institution</button>
+
+            <div class="row" style="margin: 60 0 0 0">
+                <div class="col-md-4" style="margin: 0 0 70 0">
+                    <a href="#screener">
+                        <img class="img-responsive intro-icon" src={{ url_for('static', filename='screener_icon.png') }} alt="Funds Screener">
+                        <h3 class="white" style="margin: 0;">Take a quick quiz for sample portfolio.</h3>
+                    </a>
+                </div>
+                <div class="col-md-4" style="margin: 0 0 70 0">
+                    <a href="#optimizer">
+                        <img class="img-responsive intro-icon" src={{ url_for('static', filename='optimizer_icon.png') }} alt="Portfolio Optimizer">
+                        <h3 class="white" style="margin: 0;">Balance your portfolio.</h3>
+                    </a>
+                </div>
+                <div class="col-md-4" style="margin: 0 0 70 0">
+                    <a href="#locator">
+                        <img class="img-responsive intro-icon" src={{ url_for('static', filename='locator_icon.png') }} alt="Advisor Locator">
+                        <h3 class="white" style="margin: 0;">Find a financial advisor near you.</h3>
+                    </a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12" style="margin: 0 0 100 0;">
+                    <h2><b>But first, let's learn about <b class="white-underline">Capital Group</b>...</b></h2>
+                </div>
             </div>
         </div>
+    </div>
 
-
-
-         <div class="container">
-             <div class="page-header">
-                <h2>Contact Us</h2>
+<!-- CG informational -->
+<div id="cginfo-one" class="container cg-squares-bg">
+    <div class="row">
+        <div class="col-md-6">
+            <div style="margin: 200 50;">
+                <h1 style="font-size: 3em;">Our Way of Investing Refined For Over <b>80 Years</b></h1>
             </div>
-              <div class="row">
-                  <div class="col-md-6 col-md-offset-3">
-                    <form>
-                      <div class="form-row">
-                        <div class="form-group col-md-6">
-                          <label for="inputFName">First Name</label>
-                          <input type="text" class="form-control" id="inputFName" placeholder="Jessica">
-                        </div>
-                        <div class="form-group col-md-6">
-                          <label for="inputLName">Last Name</label>
-                          <input type="text" class="form-control" id="inputFName" placeholder="Yate">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="inputEmail">Email</label>
-                        <input type="text" class="form-control" id="inputEmail" placeholder="jess.yate@gmail.com">
-                      </div>
-                      <div class="form-group">
-                        <label for="inputNumber">Phone Number</label>
-                        <input type="text" class="form-control" id="inputNumber" placeholder="(888) 546-1324">
-                      </div>
-                      <div class="form-group">
-                        <label for="inputAddress">Address</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                      </div>
-                      <div class="form-group">
-                        <label for="inputAddress2">Address 2</label>
-                        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-                      </div>
-                      <div class="form-row">
-                        <div class="form-group col-md-6">
-                          <label for="inputCity">City</label>
-                          <input type="text" class="form-control" id="inputCity">
-                        </div>
-                        <div class="form-group col-md-4">
-                          <label for="inputState">State</label>
-                          <select id="inputState" class="form-control">
-                            <option selected>Choose...</option>
-                            <option>...</option>
-                          </select>
-                        </div>
-                        <div class="form-group col-md-2">
-                          <label for="inputZip">Zip</label>
-                          <input type="text" class="form-control" id="inputZip">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" id="gridCheck">
-                          <label class="form-check-label" for="gridCheck">
-                            I give my permission for a representative to contact me.
-                          </label>
-                        </div>
-                      </div>
-                      <button type="submit" class="btn btn-primary">Sign up</button>
-                  </form>
-              </div>
-          </div>
+        </div>
+        <div class="col-md-6">
+            <div style="margin: 101 30;">
+                <h2><b>We're In It For the Long Haul</b></h2>
+                <p style="font-size: 1.3em;">We believe in a <b>commitment</b> to a consistent, <b>long-term</b> approach to investing that has delivered superior results for our investors.</p>
+                <br>
+                <h2><b>Teamwork Makes the Dream Work</b></h2>
+                <p style="font-size: 1.3em;">Instead of relying on individual “star performers” or a committee to manage funds based on consensus, managers and analysts <b>manage
+                    their own</b> divided sleeve of a fund how they want, while <b>collaborating</b> and <b>sharing knowledge</b> with each other.</p>
+            </div>
+        </div>
+    </div>
+ </div>
+
+<div id="cginfo-two" class="container-fluid cg-bluegradient-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div style="margin: 250 0;">
+                    <h1 class="white-underline"><b>The Capital System</b></h1>
+                </div>
+            </div>
+            <div class="col-md-6" style="margin: 250 0;">
+                <h2>GIF here?</h2>
+            </div>
+        </div>
     </div>
 </div>
+
+
+<!--Question Flow -->
+ <div id="screener" class="container-fluid">
+ <div class="container">
+    <div class="row" style="margin: 200 0;">
+        <div class="col-md-12">
+            <h1 class="cg-blue">Answer some questions about yourself</h1>
+        </div>
+
+
+    </div>
+ </div>
+ </div>
+
+<!--Portfolio Optimizer -->
+<div id="optimizer" class="container-fluid cg-squares-bg">
+    <div class="container">
+        <div class="row" style="margin: 200 0;">
+            <div class="col-md-12">
+                <h2><b>Let's diversify!</b></h2>
+                Select a mutual fund to add to your portfolio.
+            </div>
+        </div>
+
+
+        <div class="container" id="scale-container">
+            <div class="scale-animation" id="scale-line">
+              <div class="empty-big-circle circle" id="left-1">Your Pick</div>
+              <div class="empty-big-circle circle" id="left-2">Your Pick</div>
+              <div class="empty-small-circle circle" id="right-1">Our Pick</div>
+              <div class="empty-small-circle circle" id="right-2">Our Pick</div>
+              <div class="empty-small-circle circle" id="right-3">Our Pick</div>
+            </div>
+            <div id="scale-triangle">
+            </div>
+        </div>
+
+        <div class="container">
+          <select id="firstPick" onchange="updateYourPick1()">
+              <option value="0"> Select your first fund...</option>
+              <option value="AMCAP"> AMCAP Fund</option>
+              <option value="AMFD"> American Mutual Fund</option>
+          </select>
+          <select id="secondPick" onchange="updateYourPick2()">
+              <option value="0"> Select your second fund...</option>
+              <option value="AMCAP"> AMCAP Fund</option>
+              <option value="AMFD"> American Mutual Fund</option>
+          </select>
+          <button class="btn" onclick="calculateRemaining()">
+            OK
+          </button>
+        </div>
+
+        <div id="temp-buttons">
+            <button class="btn" onclick="showAmericanFunds()">
+            B1
+          </button>
+
+          <button class="btn" onclick="showNonAmericanFunds()">
+            B2
+          </button>
+
+          <button class="btn" onclick="resetScale()">
+            B3
+          </button>
+
+          <button class="btn" onclick="showPortfolio()">
+            B4
+          </button>
+        </div>
+
+
+    </div>
+</div>
+
+
+
+<!--Financial Advisor Locator -->
+ <div id="locator" class="container-fluid cg-whitebluegradient-bg">
+     <div class="container">
+         <div class="row" style="padding: 50 50 20 50">
+             <h1>Find a financial advisor</h1>
+             <h4>A guide for your financial journey</h4>
+         </div>
+         <div class="row" style="padding: 0 50 80 50;">
+            <div class="col-md-7">
+
+                <div id="findadvisor">
+                    <b>Find financial advisor in:</b>
+                </div>
+
+                <div id="controls" style="padding: 15 0">
+                    <select id="country">
+                        <option value="all">All</option>
+                        <option value="au">Australia</option>
+                        <option value="br">Brazil</option>
+                        <option value="ca">Canada</option>
+                        <option value="fr">France</option>
+                        <option value="de">Germany</option>
+                        <option value="mx">Mexico</option>
+                        <option value="nz">New Zealand</option>
+                        <option value="it">Italy</option>
+                        <option value="za">South Africa</option>
+                        <option value="es">Spain</option>
+                        <option value="pt">Portugal</option>
+                        <option value="us" selected>U.S.A.</option>
+                        <option value="uk">United Kingdom</option>
+                    </select>
+                    <input id="autocomplete" placeholder="Enter a city" type="text" />
+                </div>
+
+                <div id="companyChooser" style="padding-bottom: 10; display: inline-block;">
+                    <div style="float: left"><b>Institution:</b></div>
+                    <div style="float: left"><input style="margin-left: 15" type="radio" onchange="search()" name="advisorCompany" id="edwardjones" checked="checked" /> Edward Jones</div>
+                    <div style="float: left"><input style="margin-left: 15" type="radio" onchange="search()" name="advisorCompany" id="wellsfargo" /> Wells Fargo Advisors</div>
+                    <div style="float: left"><input style="margin-left: 15" type="radio" onchange="search()" name="advisorCompany" id="merrilllynch" /> Merrill Lynch</div>
+                    <div style="float: left"><input style="margin-left: 15" type="radio" onchange="search()" name="advisorCompany" id="fidelity" /> Fidelity</div>
+                </div>
+
+                <div id="redoSearch" style="padding-bottom: 10; display: none;">
+                    <button type="redoSearch" class="btn btn-default" onclick="search()">Refresh search</button>
+                </div>
+
+
+                <div id="map" style="margin: auto; position: relative; overflow: hidden; height: 500px; width: 100%;"></div>
+            </div>
+
+            <div class="col-md-5">
+                <h2>Results:</h2>
+                <h5>Click result for more info</h5>
+                <div id="listing">
+                    <table id="resultsTable" align="center">
+                        <tbody id="results">
+
+                        <tr><td style="padding: 50 0; color:grey"><h5>- Enter location to begin search -</h5></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="display: none; margin: auto;">
+                    <div id="info-content">
+                        <table align="center">
+                            <tr id="iw-url-row" class="iw_table_row">
+                                <td id="iw-icon" class="iw_table_icon"></td>
+                                <td id="iw-url"></td>
+                            </tr>
+                            <tr id="iw-address-row" class="iw_table_row">
+                                <td class="iw_attribute_name">Address:</td>
+                                <td id="iw-address"></td>
+                            </tr>
+                            <tr id="iw-phone-row" class="iw_table_row">
+                                <td class="iw_attribute_name">Telephone:</td>
+                                <td id="iw-phone"></td>
+                            </tr>
+                            <tr id="iw-website-row" class="iw_table_row">
+                                <td class="iw_attribute_name">Website:</td>
+                                <td id="iw-website"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+              var map, places, infoWindow;
+              var markers = [];
+              var autocomplete;
+              var countryRestrict = {'country': 'us'};
+              var MARKER_PATH = 'https://developers.google.com/maps/documentation/javascript/images/marker_green';
+              var hostnameRegexp = new RegExp('^https?://.+?/');
+
+              var countries = {
+                'au': {
+                  center: {lat: -25.3, lng: 133.8},
+                  zoom: 4
+                },
+                'br': {
+                  center: {lat: -14.2, lng: -51.9},
+                  zoom: 3
+                },
+                'ca': {
+                  center: {lat: 62, lng: -110.0},
+                  zoom: 3
+                },
+                'fr': {
+                  center: {lat: 46.2, lng: 2.2},
+                  zoom: 5
+                },
+                'de': {
+                  center: {lat: 51.2, lng: 10.4},
+                  zoom: 5
+                },
+                'mx': {
+                  center: {lat: 23.6, lng: -102.5},
+                  zoom: 4
+                },
+                'nz': {
+                  center: {lat: -40.9, lng: 174.9},
+                  zoom: 5
+                },
+                'it': {
+                  center: {lat: 41.9, lng: 12.6},
+                  zoom: 5
+                },
+                'za': {
+                  center: {lat: -30.6, lng: 22.9},
+                  zoom: 5
+                },
+                'es': {
+                  center: {lat: 40.5, lng: -3.7},
+                  zoom: 5
+                },
+                'pt': {
+                  center: {lat: 39.4, lng: -8.2},
+                  zoom: 6
+                },
+                'us': {
+                  center: {lat: 37.1, lng: -95.7},
+                  zoom: 3
+                },
+                'uk': {
+                  center: {lat: 54.8, lng: -4.6},
+                  zoom: 5
+                }
+              };
+
+              function initMap() {
+                map = new google.maps.Map(document.getElementById('map'), {
+                  zoom: countries['us'].zoom,
+                  center: countries['us'].center,
+                  mapTypeControl: false,
+                  panControl: false,
+                  zoomControl: false,
+                  streetViewControl: false
+                });
+
+                infoWindow = new google.maps.InfoWindow({
+                  content: document.getElementById('info-content')
+                });
+
+                // Create the autocomplete object and associate it with the UI input control.
+                // Restrict the search to the default country, and to place type "cities".
+                autocomplete = new google.maps.places.Autocomplete(
+                    /** @type {!HTMLInputElement} */ (
+                        document.getElementById('autocomplete')), {
+                      types: ['(cities)'],
+                      componentRestrictions: countryRestrict
+                    });
+                places = new google.maps.places.PlacesService(map);
+
+                autocomplete.addListener('place_changed', onPlaceChanged);
+
+                // Add a DOM event listener to react when the user selects a country.
+                document.getElementById('country').addEventListener(
+                    'change', setAutocompleteCountry);
+
+
+              }
+
+              // When the user selects a city, get the place details for the city and
+              // zoom the map in on the city.
+              function onPlaceChanged() {
+                var place = autocomplete.getPlace();
+                if (place.geometry) {
+                  map.panTo(place.geometry.location);
+                  map.setZoom(12);
+                  search();
+                } else {
+                  document.getElementById('autocomplete').placeholder = 'Enter a city';
+                }
+
+                var redoButton = document.getElementById('redoSearch');
+                if (redoButton.style.display == 'none') {
+                    redoButton.style.display = 'block';
+                }
+              }
+
+              // Search for locations in the selected city, within the viewport of the map.
+              function search() {
+                if(autocomplete.getPlace())
+                {
+                    var company = 'edward jones'
+                    if (document.getElementById('edwardjones').checked == true) {
+                        company = 'edward jones';
+                      }
+                    else if (document.getElementById('wellsfargo').checked == true) {
+                        company = 'wells fargo advisors';
+                    }
+                    else if (document.getElementById('merrilllynch').checked == true) {
+                        company = 'merrill lynch';
+                    }
+                    else if (document.getElementById('fidelity').checked == true) {
+                        company = 'fidelity investments';
+                    }
+
+                    var search = {
+                      bounds : map.getBounds(),
+                      query : company
+                    };
+
+                    places.textSearch(search, function(results, status) {
+                      if (status === google.maps.places.PlacesServiceStatus.OK) {
+                        clearResults();
+                        clearMarkers();
+                        // Create a marker for each location found, and
+                        // assign a letter of the alphabetic to each marker icon.
+                        for (var i = 0; i < results.length; i++) {
+                          var markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
+                          var markerIcon = MARKER_PATH + markerLetter + '.png';
+                          // Use marker animation to drop the icons incrementally on the map.
+                          markers[i] = new google.maps.Marker({
+                            position: results[i].geometry.location,
+                            animation: google.maps.Animation.DROP,
+                            icon: markerIcon
+                          });
+                          // If the user clicks a location marker, show the details of that location
+                          // in an info window.
+                          markers[i].placeResult = results[i];
+                          google.maps.event.addListener(markers[i], 'click', showInfoWindow);
+                          setTimeout(dropMarker(i), i * 100);
+                          addResult(results[i], i);
+                        }
+                      }
+                    });
+                }
+              }
+
+              function clearMarkers() {
+                for (var i = 0; i < markers.length; i++) {
+                  if (markers[i]) {
+                    markers[i].setMap(null);
+                  }
+                }
+                markers = [];
+              }
+
+              // Set the country restriction based on user input.
+              // Also center and zoom the map on the given country.
+              function setAutocompleteCountry() {
+                var country = document.getElementById('country').value;
+                if (country == 'all') {
+                  autocomplete.setComponentRestrictions({'country': []});
+                  map.setCenter({lat: 15, lng: 0});
+                  map.setZoom(2);
+                } else {
+                  autocomplete.setComponentRestrictions({'country': country});
+                  map.setCenter(countries[country].center);
+                  map.setZoom(countries[country].zoom);
+                }
+                clearResults();
+                clearMarkers();
+              }
+
+              function dropMarker(i) {
+                return function() {
+                  markers[i].setMap(map);
+                };
+              }
+
+              function addResult(result, i) {
+                var results = document.getElementById('results');
+                var markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
+                var markerIcon = MARKER_PATH + markerLetter + '.png';
+
+                var tr = document.createElement('tr');
+                tr.style.padding = 20;
+                tr.onclick = function() {
+                  google.maps.event.trigger(markers[i], 'click');
+                };
+
+                var iconTd = document.createElement('td');
+                var nameTd = document.createElement('td');
+                var icon = document.createElement('img');
+                icon.src = markerIcon;
+                icon.setAttribute('class', 'placeIcon');
+                icon.setAttribute('className', 'placeIcon');
+                var name = document.createTextNode(result.name);
+                iconTd.style.padding = 2;
+                iconTd.appendChild(icon);
+                nameTd.appendChild(name);
+                tr.appendChild(iconTd);
+                tr.appendChild(nameTd);
+                results.appendChild(tr);
+              }
+
+              function clearResults() {
+                var results = document.getElementById('results');
+                while (results.childNodes[0]) {
+                  results.removeChild(results.childNodes[0]);
+                }
+              }
+
+              // Get the place details for a location. Show the information in an info window,
+              // anchored on the marker for the location that the user selected.
+              function showInfoWindow() {
+                var marker = this;
+                places.getDetails({placeId: marker.placeResult.place_id},
+                    function(place, status) {
+                      if (status !== google.maps.places.PlacesServiceStatus.OK) {
+                        return;
+                      }
+                      infoWindow.open(map, marker);
+                      buildIWContent(place);
+                    });
+              }
+
+              // Load the place information into the HTML elements used by the info window.
+              function buildIWContent(place) {
+                document.getElementById('iw-icon').innerHTML = '<img class="locationIcon" ' +
+                    'src="' + place.icon + '"/>';
+                document.getElementById('iw-url').innerHTML = '<b><a href="' + place.url +
+                    '">' + place.name + '</a></b>';
+                document.getElementById('iw-address').textContent = place.vicinity;
+
+                if (place.formatted_phone_number) {
+                  document.getElementById('iw-phone-row').style.display = '';
+                  document.getElementById('iw-phone').textContent =
+                      place.formatted_phone_number;
+                } else {
+                  document.getElementById('iw-phone-row').style.display = 'none';
+                }
+
+                // The regexp isolates the first part of the URL (domain plus subdomain)
+                // to give a short URL for displaying in the info window.
+                if (place.website) {
+                  var fullUrl = place.website;
+                  var website = hostnameRegexp.exec(place.website);
+                  if (website === null) {
+                    website = 'http://' + place.website + '/';
+                    fullUrl = website;
+                  }
+                  document.getElementById('iw-website-row').style.display = '';
+                  document.getElementById('iw-website').textContent = website;
+                } else {
+                  document.getElementById('iw-website-row').style.display = 'none';
+                }
+              }
+            </script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmMn-xi_BBgb0oe67-7YmEtFa2EqHq4r4&libraries=places&callback=initMap"
+                async defer></script>
+
+
+         </div>
+    </div>
+ </div>
+
+
+
+
+<!--Contact Us -->
+<div id="contact" class="container-fluid">
+    <div class="container" style="margin: 100 auto">
+         <div class="page-header">
+            <h2>Contact Us</h2>
+        </div>
+          <div class="row">
+              <div class="col-md-6 col-md-offset-3">
+                <form>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <input type="text" class="form-control" id="inputFName" placeholder="First Name">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <input type="text" class="form-control" id="inputLName" placeholder="Last Name">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="inputEmail" placeholder="Email">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="inputNumber" placeholder="Phone Number">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="inputAddress" placeholder="Address">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <input type="text" class="form-control" id="inputCity" placeholder="City">
+                    </div>
+                    <div class="form-group col-md-4">
+                      <select id="inputState" class="form-control" id="inputState" name="State" placeholder="State">
+                          <option selected="selected" disabled="disabled">State</option>
+                          <option value="">N/A</option>
+                          <option value="AK">Alaska</option>
+                          <option value="AL">Alabama</option>
+                          <option value="AR">Arkansas</option>
+                          <option value="AZ">Arizona</option>
+                          <option value="CA">California</option>
+                          <option value="CO">Colorado</option>
+                          <option value="CT">Connecticut</option>
+                          <option value="DC">District of Columbia</option>
+                          <option value="DE">Delaware</option>
+                          <option value="FL">Florida</option>
+                          <option value="GA">Georgia</option>
+                          <option value="HI">Hawaii</option>
+                          <option value="IA">Iowa</option>
+                          <option value="ID">Idaho</option>
+                          <option value="IL">Illinois</option>
+                          <option value="IN">Indiana</option>
+                          <option value="KS">Kansas</option>
+                          <option value="KY">Kentucky</option>
+                          <option value="LA">Louisiana</option>
+                          <option value="MA">Massachusetts</option>
+                          <option value="MD">Maryland</option>
+                          <option value="ME">Maine</option>
+                          <option value="MI">Michigan</option>
+                          <option value="MN">Minnesota</option>
+                          <option value="MO">Missouri</option>
+                          <option value="MS">Mississippi</option>
+                          <option value="MT">Montana</option>
+                          <option value="NC">North Carolina</option>
+                          <option value="ND">North Dakota</option>
+                          <option value="NE">Nebraska</option>
+                          <option value="NH">New Hampshire</option>
+                          <option value="NJ">New Jersey</option>
+                          <option value="NM">New Mexico</option>
+                          <option value="NV">Nevada</option>
+                          <option value="NY">New York</option>
+                          <option value="OH">Ohio</option>
+                          <option value="OK">Oklahoma</option>
+                          <option value="OR">Oregon</option>
+                          <option value="PA">Pennsylvania</option>
+                          <option value="PR">Puerto Rico</option>
+                          <option value="RI">Rhode Island</option>
+                          <option value="SC">South Carolina</option>
+                          <option value="SD">South Dakota</option>
+                          <option value="TN">Tennessee</option>
+                          <option value="TX">Texas</option>
+                          <option value="UT">Utah</option>
+                          <option value="VA">Virginia</option>
+                          <option value="VT">Vermont</option>
+                          <option value="WA">Washington</option>
+                          <option value="WI">Wisconsin</option>
+                          <option value="WV">West Virginia</option>
+                          <option value="WY">Wyoming</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <input type="text" class="form-control" id="inputZip" placeholder="Zip">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="gridCheck">
+                      <label class="form-check-label" for="gridCheck">
+                        I give my permission for a representative to contact me.
+                      </label>
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+          </div>
+      </div>
+    </div>
+</div>
+
+
+   <!--  3 Columns Section -->
+
+        <!--    <div class="container"> // THREE EVEN SECTIONS IN A CONTAINER
+
+            <div class="row">
+                <div class="col-md-4">  <a href="/investor_details">
+                   <h2 class="cg-bigheader cg-blue">Area 1</h2>
+                </div>
+                <div class="col-md-4">
+                     <h1>Area 2</h1>
+
+                </div>
+                <div class="col-md-4">
+                     <h2 class="cg-bigheader cg-blue">Area 3</h2>
+                </div>
+            </div>
+        </div> -->
+
+    <!-- Extra Sections
+
+    <div id="one-container" class="container-flex" style="background-image:url({{ url_for('static', filename='vector-squares.png') }}); background-position: bottom right; background-size: 60%; background-repeat: no-repeat;">
+    <div id="one" class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div style="margin: 180 50;">
+                    <h1 style="font-size: 3em;">Our Way of Investing Refined For Over <b>80 Years</b></h1>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div style="margin: 100 30;">
+                    <h2><b>We're In It For the Long Haul</b></h2>
+                    <p style="font-size: 1.3em;">We believe in a <b>commitment</b> to a consistent, <b>long-term</b> approach to investing that has delivered superior results for our investors.</p>
+                    <br>
+                    <h2><b>Teamwork Makes the Dream Work</b></h2>
+                    <p style="font-size: 1.3em;">Instead of relying on individual “star performers” or a committee to manage funds based on consensus, managers and analysts <b>manage
+                        their own</b> divided sleeve of a fund how they want, while <b>collaborating</b> and <b>sharing knowledge</b> with each other.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div id="two-container" class="container-flex" style="background: linear-gradient(to right, #009bde , #9bd2c8)">
+        <div id="two" class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div style="margin: 150 50;">
+                        <img src="{{ url_for('static', filename='media-placeholder.png') }}" style="width: 80%; align: center" alt="Media Placeholder">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div style="margin: 200 30;">
+                        <h2><b>Aliquam vel metus</b></h2>
+                        <p style="font-size: 1.3em;">Maecenas vel placerat ex, vel pharetra libero. In vitae ultrices odio, nec bibendum nisi. Etiam et ligula dui. </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="three-container" class="container-flex" style="background: #f3f4f8">
+        <div id="three" class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div style="margin: 100 50;">
+                        <h2><b>convallis venenatis risus</b></h2>
+                        <h3><b>felis cursus</b></h3>
+                        <p>onec euismod magna a diam facilisis, id pretium purus ullamcorper. Aliquam vel metus id nisl
+                            fermentum commodo quis id quam. Sed rutrum est id nulla lobortis, at venenatis arcu
+                            facilisis.</p>
+                        <h3><b>felis cursus</b></h3>
+                        <p>onec euismod magna a diam facilisis, id pretium purus ullamcorper. Aliquam vel metus id nisl
+                            fermentum commodo quis id quam. Sed rutrum est id nulla lobortis, at venenatis arcu
+                            facilisis.</p>                        <h3><b>felis cursus</b></h3>
+                        <p>onec euismod magna a diam facilisis, id pretium purus ullamcorper. Aliquam vel metus id nisl
+                            fermentum commodo quis id quam. Sed rutrum est id nulla lobortis, at venenatis arcu
+                            facilisis.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div style="margin: 170 50;">
+                        <img src="{{ url_for('static', filename='media-placeholder.png') }}" style="width: 80%; align: center" alt="Media Placeholder">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="four-container" class="container-flex">
+        <div id="four" class="container">
+            <div style="margin: 200 100;">
+                <h1><b>convallis venenatis risus</b></h1>
+                <h3>onec euismod magna a diam facilisis, id pretium purus ullamcorper. Aliquam vel metus id nisl
+                    fermentum commodo quis id quam. Sed rutrum est id nulla lobortis, at venenatis arcu
+                    facilisis.</h3>
+            </div>
+        </div>
+    </div>
+
+    <div id="five-container" class="container-flex" style="background: #f3f4f8">
+        <div id="five" class="container">
+            <div style="margin: 200 100;">
+
+            </div>
+        </div>
+    </div>
+        </div>
+
+-->
 {% endblock %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

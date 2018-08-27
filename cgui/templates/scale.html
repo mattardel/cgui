@@ -1,28 +1,60 @@
 {% extends "layout.html" %}
 
-{% block css %}
-  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-{% endblock %}
-
 {% block body %}
-  <div id="directions">Select a mutual fund to add to your portfolio.</div>
+<div class="center" id="directions">Select a mutual fund to add to your portfolio.
+    </div>
 
-    <div id="scale-line" >
-      <div id="empty-circle" class="left circle">Your Pick</div>
-      <div id="empty-circle" class="right circle">Our Pick</div>
+  <div class="center" id="scale-container">
+    <div class="scale-animation" id="scale-line">
+      <div class="empty-big-circle circle" id="left-1">Your Pick</div>
+      <div class="empty-big-circle circle" id="left-2">Your Pick</div>
+      <div class="empty-small-circle circle" id="right-1">Our Pick</div>
+      <div class="empty-small-circle circle" id="right-2">Our Pick</div>
+      <div class="empty-small-circle circle" id="right-3">Our Pick</div>
     </div>
     <div id="scale-triangle">
     </div>
+  </div>
 
-    <button onclick="myFunction()" class="dropbtn">Select fund...</button>
-      <div id="myDropdown" class="dropdown-content">
-        <a href="#">AMCAP Fund</a>
-        <a href="#">American Mutual Fund</a>
-        <a href="#">Conservative Growth...</a>
-        <a href="#">Corporate Bond Fund</a>
-        <a href="#">...</a>
-      </div>
-    </div>
+    <div class="center selection">
+      <select id="firstPick" onchange="updateYourPick1()">
+          <option value="0"> Select your first fund...</option>
+          <option value="AMCAP"> AMCAP Fund</option>
+          <option value="AMFD"> American Mutual Fund</option>
+      </select>
+      <select id="secondPick" onchange="updateYourPick2()">
+          <option value="0"> Select your second fund...</option>
+          <option value="AMCAP"> AMCAP Fund</option>
+          <option value="AMFD"> American Mutual Fund</option>
+      </select>
+      <button class="btn" onclick="calculateRemaining()">
+        OK
+      </button>
+  </div>
+
+  <div class="center" id="temp-buttons">
+        <button class="btn" onclick="showAmericanFunds()">
+        B1
+      </button>
+
+      <button class="btn" onclick="showNonAmericanFunds()">
+        B2
+      </button>
+
+      <button class="btn" onclick="resetScale()">
+        B3
+      </button>
+
+      <button class="btn" onclick="showPortfolio()">
+        B4
+      </button>
+  </div>
+
+
+
+
+
+
 {% endblock %}
 
 {% block js %}

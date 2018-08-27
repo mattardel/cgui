@@ -1,10 +1,10 @@
 from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash
-from cgui.funds import Funds
+# from cgui.funds import Funds
 
 app = Flask(__name__)
 app.config.from_object(__name__)
-funds = Funds()
+# funds = Funds()
 
 @app.route('/')
 def show_index():
@@ -30,10 +30,10 @@ def show_scale():
     #route toscale page
     return render_template('scale.html')
 
-@app.route('/portfolio')
-def show_portfolio():
+# @app.route('/portfolio')
+# def show_portfolio():
     # route to investor page
-    return render_template('portfolio.html', funds_dict=funds.funds_dict, funds_closings=funds.closings_dict)
+#    return render_template('portfolio.html', funds_dict=funds.funds_dict, funds_closings=funds.closings_dict)
 
 if __name__ == '__main__':
     app.run(debug=True)
