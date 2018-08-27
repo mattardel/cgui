@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from funds.funds import Funds
+# from funds.funds import Funds
 from cgui.funds.funds import Funds
 
 

@@ -243,8 +243,9 @@ function colorPortfolio() {
 }
 
 function resetScale() {
-	document.getElementById("directions").innerHTML = "We selected 2 Funds from American Funds and 1 non-American Fund.  If one of your funds fail, the rest of your funds will not be affected and vice versa. Your portfolio is BALANCED!";
-	document.getElementById("scale-line").classList.remove("scale-animation");
+    location.reload();
+    var optimizer = document.getElementById("optimizer");
+    optimizer.scrollIntoView();
 }
 
 function resetPicks() {
@@ -254,6 +255,7 @@ function resetPicks() {
     document.getElementById("left-2").innerHTML = "Your Pick";
 	document.getElementById("left-2").style.background = none;
 	document.getElementById("left-2").style.color = "white";
+}
 
 function startOver() {
 	var animationBoard1 = document.getElementById('animation-board-1');
