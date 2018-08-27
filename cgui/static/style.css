@@ -245,8 +245,9 @@ html,body {
 /* ------ SCALE ------ */
 
 #scale-container {
-  position: absolute;
-    margin-top: 160px;
+  position: relative;
+  padding: 100px;
+
 }
 
 #scale-line {
