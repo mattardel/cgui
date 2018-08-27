@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+    <div>
+        <h1>Test Portfolio Manager</h1>
+    </div>
+    <div id="choice1">
+        <label for="ticker1">1: </label>
+        <select id="ticker1">
+            {% for key, value in funds_dict.items() %}
+                <option value={{key}}>{{value}}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="submit" onclick="getFirstCorrFund({{funds_closings}}, {{funds_dict}})"/>
+    </div>
+    <div id="choice2">
+        <label for="ticker2">2: </label>
+        <select id="ticker2"></select>
+        <input type="submit" value="submit" onclick="getSecondCorrFund({{funds_closings}}, {{funds_dict}})"/>
+    </div>
+    <div>
+        <h3>Portfolio</h3>
+        <div id="portfolio">
+            <h5 id="p1"></h5>
+            <h5 id="p2"></h5>
+            <h5 id="p3"></h5>
+            <h5 id="p4"></h5>
+            <h5 id="p5"></h5>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/portfolio-optimizer.js') }}"></script>
+{% endblock %}

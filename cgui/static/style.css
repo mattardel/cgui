@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* element and overrides */
 body {
   background: white;
@@ -183,3 +184,166 @@ html,body {
   padding-bottom:10px;
   color:#fff;
 }
+
+/*---- Portfolio optimizer CSS ----*/
+
+.animation-center {
+  position: absolute;
+  left: 29%;
+  transform: translate(-50%, -50%);
+}
+
+.selection {
+  top: 70%;
+}
+
+#temp-buttons {
+  top: 80%;
+}
+
+#animation-board-1 {
+  display: block;
+}
+
+#animation-board-2 {
+  display: none;
+}
+
+/* ------ FUND CIRCLES ------ */
+
+.circle {
+  position: absolute;
+  bottom: 10px;
+}
+
+.empty-small-circle {
+  border: 3px dashed #009bde;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  font-weight: bold;
+  color: #009bde;
+  line-height: 90px;
+  text-align: center;
+}
+
+.empty-big-circle {
+  border: 3px dashed #009bde;
+  width: 105px;
+  height: 105px;
+  border-radius: 50%;
+  font-weight: bold;
+  color: #009bde;
+  line-height: 90px;
+  text-align: center;
+}
+
+#left-1 {
+  left: 0px;
+}
+
+#left-2 {
+  left: 115px;
+}
+
+#right-1 {
+  left: 430px;
+}
+
+#right-2 {
+  left: 520px;
+}
+
+#right-3 {
+  left: 475px;
+  margin-bottom: 80px;
+}
+
+/* ------ FULL PORTFOLIO ------ */
+
+.top-row {
+  bottom: 60%;
+  left: 35%;
+  position: absolute;
+}
+
+.bottom-row {
+  position: absolute;
+  top: 40px;
+  left: 15%;
+}
+
+#portfolio-1 {
+  left: 0px;
+}
+
+#portfolio-2 {
+  left: 120px;
+}
+
+#portfolio-3 {
+  left: 240px;
+}
+
+#portfolio-4 {
+  left: 300px;
+}
+
+#portfolio-5 {
+  left: 425px;
+}
+
+/* ------ SCALE ------ */
+
+.funds-container {
+  position: relative;
+  padding: 100px;
+
+}
+
+#scale-line {
+  height: 7px;
+  width: 600px;
+  background: #777777;
+  position: absolute;
+  left: 50%;
+  bottom: 170px;
+  transform: translateX(-50%) rotate(0deg);
+  z-index: 1;
+}
+
+.scale-animation {
+  animation: scale-top 5s infinite alternate-reverse;
+}
+
+@keyframes scale-top {
+  from {
+    transform: translateX(-50%) rotate(-12deg);
+  }
+  to {
+    transform: translateX(-50%) rotate(12deg);
+  }
+}
+
+#scale-triangle {
+  display: block;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  height: 0;
+  width: 0;
+  border-top: 0px;
+  border-bottom: 100px solid transparent;
+  border-right: 100px solid #009bde;
+  transform: translateX(-50%) rotate(315deg);
+  z-index: 0;
+}
+
+.paused{
+    -webkit-animation-play-state:paused;
+    -moz-animation-play-state:paused;
+    -o-animation-play-state:paused;
+    animation-play-state:paused;
+}
+
+>>>>>>> portfolio_optimizer

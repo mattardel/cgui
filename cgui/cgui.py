@@ -1,10 +1,13 @@
 from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash, json, jsonify
-from forms.forms import ScreeningForm
+from cgui.forms.forms import ScreeningForm
 import random
+from cgui.funds.funds import Funds
+
 
 app = Flask(__name__)
 app.config.from_object(__name__)
+funds = Funds()
 
 app.secret_key="capgroupunpaid"
 
@@ -101,10 +104,10 @@ def show_index():
             print('goal')
 
         return render_template('index.html', form=form, form_data=form_data, af=american_funds, type=type,
-                               recs=recs, submit=True)
+                               recs=recs, submit=True, funds_dict=funds.funds_dict, funds_closings=funds.closings_dict)
     elif request.method == 'GET':
         return render_template('index.html', form=form, form_data=form_data, af=american_funds, type=type,
-                               recs=recs)
+                               recs=recs, funds_dict=funds.funds_dict, funds_closings=funds.closings_dict)
 
 @app.route('/test')
 def show_test():

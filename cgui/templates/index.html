@@ -1,4 +1,5 @@
 {% extends "layout.html" %}
+
 {% block body %}
 
 {% if submit %}
@@ -8,13 +9,6 @@
     </script>
 {% endif %}
 
-<script type="text/javascript">
-function jump(h){
-    var top = document.getElementById(h).offsetTop;
-    window.scrollTo(0, top);
-
-}​
-</script>
 
 <!--Header Section where Visual Element would go-->
     <div id="investor-header" class="container-fluid">
@@ -234,16 +228,75 @@ function jump(h){
 </div>
 {% endif %}
 
+
 <!--Portfolio Optimizer -->
 <div id="optimizer" class="container-fluid cg-squares-bg">
     <div class="container">
+        <div id="animation-board-1">
             <div class="row" style="margin: 200 0;">
                 <div class="col-md-12">
                     <h2><b>Let's diversify!</b></h2>
+                    <div id="directions">
+                        Select a mutual fund to add to your portfolio.
+                    </div>
+                </div>
+            </div>
+
+            <div class="row funds-container">
+                <div class="scale-animation" id="scale-line">
+                  <div class="empty-big-circle circle" id="left-1">Your Pick</div>
+                  <div class="empty-big-circle circle" id="left-2">Your Pick</div>
+                  <div class="empty-small-circle circle" id="right-1">Our Pick</div>
+                  <div class="empty-small-circle circle" id="right-2">Our Pick</div>
+                  <div class="empty-small-circle circle" id="right-3">Our Pick</div>
+                </div>
+                <div id="scale-triangle">
+                </div>
+            </div>
+
+        <div class="container" id="fund-options">
+          <select id="firstPick" onchange="updateYourPick1(); getFirstCorrFund({{funds_closings}}, {{funds_dict}});">
+              <option value="0"> Select your first fund...</option>
+              {% for key, value in funds_dict.items() %}
+                <option value={{key}}>{{value}}</option>
+              {% endfor %}
+          </select>
+          <select id="secondPick" onchange="updateYourPick2(); getSecondCorrFund({{funds_closings}}, {{funds_dict}});">
+              <option value="0"> ...</option>
+          </select>
+          <button class="btn" onclick="calculateRemaining({{funds_closings}}, {{funds_dict}})">
+            OK
+          </button>
+        </div>
+
+
+        </div>
+
+        <div id="animation-board-2">
+            <div class="row" style="margin: 100 0;">
+                    <div class="col-md-12">
+                        <h2><b>Let's diversify!</b></h2>
+                        <div id="directions">
+                            If one of your funds fail, the rest of your funds will not be affected<br>and vice versa. Your portfolio is <span class="cg-blue bold">balanced!</span>
+                        </div>
+                    </div>
+                </div>
+            <div class="row funds-container">
+                <div class="animation-center top-row">
+                  <div class="empty-big-circle circle top-row" id="portfolio-1">1</div>
+                  <div class="empty-big-circle circle top-row" id="portfolio-2">2</div>
+                  <div class="empty-big-circle circle top-row" id="portfolio-3">3</div>
+                </div>
+
+                <div class="annimation-center bottom-row">
+                  <div class="empty-big-circle circle bottom-row" id="portfolio-4">4</div>
+                  <div class="empty-big-circle circle bottom-row" id="portfolio-5">5</div>
                 </div>
             </div>
         </div>
+
     </div>
+</div>
 
 <!--Financial Advisor Locator -->
  <div id="locator" class="container-fluid cg-whitebluegradient-bg">
@@ -289,8 +342,12 @@ function jump(h){
 
                 <div id="redoSearch" style="padding-bottom: 10; display: none;">
                     <button type="redoSearch" class="btn btn-default" onclick="search()">Refresh search</button>
+
                 </div>
 
+                <div id="redoSearch" style="padding-bottom: 10; display: none;">
+                    <button type="redoSearch" class="btn btn-default" onclick="search()">Refresh search</button>
+                </div>
 
                 <div id="map" style="margin: auto; position: relative; overflow: hidden; height: 500px; width: 100%;"></div>
             </div>
@@ -330,6 +387,7 @@ function jump(h){
                     </div>
                 </div>
             </div>
+<
 
             <script>
               var map, places, infoWindow;
@@ -615,7 +673,6 @@ function jump(h){
 
 
 
-
 <!--Contact Us -->
 <div id="contact" class="container-fluid">
     <div class="container" style="margin: 100 auto">
@@ -727,114 +784,5 @@ function jump(h){
 </div>
 
 
-   <!--  3 Columns Section -->
 
-        <!--    <div class="container"> // THREE EVEN SECTIONS IN A CONTAINER
-
-            <div class="row">
-                <div class="col-md-4">  <a href="/investor_details">
-                   <h2 class="cg-bigheader cg-blue">Area 1</h2>
-                </div>
-                <div class="col-md-4">
-                     <h1>Area 2</h1>
-
-                </div>
-                <div class="col-md-4">
-                     <h2 class="cg-bigheader cg-blue">Area 3</h2>
-                </div>
-            </div>
-        </div> -->
-
-    <!-- Extra Sections
-
-    <div id="one-container" class="container-flex" style="background-image:url({{ url_for('static', filename='vector-squares.png') }}); background-position: bottom right; background-size: 60%; background-repeat: no-repeat;">
-    <div id="one" class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div style="margin: 180 50;">
-                    <h1 style="font-size: 3em;">Our Way of Investing Refined For Over <b>80 Years</b></h1>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div style="margin: 100 30;">
-                    <h2><b>We're In It For the Long Haul</b></h2>
-                    <p style="font-size: 1.3em;">We believe in a <b>commitment</b> to a consistent, <b>long-term</b> approach to investing that has delivered superior results for our investors.</p>
-                    <br>
-                    <h2><b>Teamwork Makes the Dream Work</b></h2>
-                    <p style="font-size: 1.3em;">Instead of relying on individual “star performers” or a committee to manage funds based on consensus, managers and analysts <b>manage
-                        their own</b> divided sleeve of a fund how they want, while <b>collaborating</b> and <b>sharing knowledge</b> with each other.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-
-    <div id="two-container" class="container-flex" style="background: linear-gradient(to right, #009bde , #9bd2c8)">
-        <div id="two" class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div style="margin: 150 50;">
-                        <img src="{{ url_for('static', filename='media-placeholder.png') }}" style="width: 80%; align: center" alt="Media Placeholder">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div style="margin: 200 30;">
-                        <h2><b>Aliquam vel metus</b></h2>
-                        <p style="font-size: 1.3em;">Maecenas vel placerat ex, vel pharetra libero. In vitae ultrices odio, nec bibendum nisi. Etiam et ligula dui. </p>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="three-container" class="container-flex" style="background: #f3f4f8">
-        <div id="three" class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div style="margin: 100 50;">
-                        <h2><b>convallis venenatis risus</b></h2>
-                        <h3><b>felis cursus</b></h3>
-                        <p>onec euismod magna a diam facilisis, id pretium purus ullamcorper. Aliquam vel metus id nisl
-                            fermentum commodo quis id quam. Sed rutrum est id nulla lobortis, at venenatis arcu
-                            facilisis.</p>
-                        <h3><b>felis cursus</b></h3>
-                        <p>onec euismod magna a diam facilisis, id pretium purus ullamcorper. Aliquam vel metus id nisl
-                            fermentum commodo quis id quam. Sed rutrum est id nulla lobortis, at venenatis arcu
-                            facilisis.</p>                        <h3><b>felis cursus</b></h3>
-                        <p>onec euismod magna a diam facilisis, id pretium purus ullamcorper. Aliquam vel metus id nisl
-                            fermentum commodo quis id quam. Sed rutrum est id nulla lobortis, at venenatis arcu
-                            facilisis.</p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div style="margin: 170 50;">
-                        <img src="{{ url_for('static', filename='media-placeholder.png') }}" style="width: 80%; align: center" alt="Media Placeholder">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="four-container" class="container-flex">
-        <div id="four" class="container">
-            <div style="margin: 200 100;">
-                <h1><b>convallis venenatis risus</b></h1>
-                <h3>onec euismod magna a diam facilisis, id pretium purus ullamcorper. Aliquam vel metus id nisl
-                    fermentum commodo quis id quam. Sed rutrum est id nulla lobortis, at venenatis arcu
-                    facilisis.</h3>
-            </div>
-        </div>
-    </div>
-
-    <div id="five-container" class="container-flex" style="background: #f3f4f8">
-        <div id="five" class="container">
-            <div style="margin: 200 100;">
-
-            </div>
-        </div>
-    </div>
-        </div>
-
--->
 {% endblock %}
