@@ -131,21 +131,20 @@
                 </div>
             </div>
 
-            <div class="container">
-              <select id="firstPick" onchange="updateYourPick1()">
-                  <option value="0"> Select your first fund...</option>
-                  <option value="AMCAP"> AMCAP Fund</option>
-                  <option value="AMFD"> American Mutual Fund</option>
-              </select>
-              <select id="secondPick" onchange="updateYourPick2()">
-                  <option value="0"> Select your second fund...</option>
-                  <option value="AMCAP"> AMCAP Fund</option>
-                  <option value="AMFD"> American Mutual Fund</option>
-              </select>
-              <button class="btn" onclick="calculateRemaining()">
-                OK
-              </button>
-            </div>
+        <div class="container">
+          <select id="firstPick" onchange="updateYourPick1(); getFirstCorrFund({{funds_closings}}, {{funds_dict}});">
+              <option value="0"> Select your first fund...</option>
+              {% for key, value in funds_dict.items() %}
+                <option value={{key}}>{{value}}</option>
+              {% endfor %}
+          </select>
+          <select id="secondPick" onchange="updateYourPick2(); getSecondCorrFund({{funds_closings}}, {{funds_dict}});">
+              <option value="0"> ...</option>
+          </select>
+          <button class="btn" onclick="calculateRemaining({{funds_closings}}, {{funds_dict}})">
+            OK
+          </button>
+        </div>
 
             <div id="temp-buttons">
                 <button class="btn" onclick="showAmericanFunds()">
